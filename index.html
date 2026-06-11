@@ -183,32 +183,61 @@
   .insight b{color:#A66A12}
 
   /* ---- KPI pies ---- */
-  .pies{display:grid;grid-template-columns:1fr 1.15fr 1fr;align-items:center;margin-top:2px;gap:14px}
-  .piecard{display:flex;flex-direction:column;align-items:center;gap:12px}
-  .piecard .ptag{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);font-weight:600;text-align:center;line-height:1.3}
-  .piewrap{position:relative;width:210px;height:210px}
+  .pies{display:grid;grid-template-columns:1fr 1.05fr 1fr;align-items:center;margin-top:6px;gap:14px}
+  .piecard{display:flex;flex-direction:column;align-items:center;gap:14px}
+  .piecard .ptag{font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);font-weight:600;text-align:center;line-height:1.3}
+  .piewrap{position:relative;width:256px;height:256px}
   .piewrap svg{width:100%;height:100%;transform:rotate(-90deg)}
   .piewrap .pcenter{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
-  .piewrap .pc-q{font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;line-height:1}
-  .piewrap .pc-l{font-size:10px;color:var(--slate);margin-top:4px;text-transform:uppercase;letter-spacing:.06em}
-  /* center legend block */
-  .pleg{display:flex;flex-direction:column;gap:12px;padding:0 6px}
-  .pleg .parrow-top{align-self:center;width:42px;height:42px;border-radius:50%;background:var(--amber);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;margin-bottom:2px}
-  .plg{}
+  .piewrap .pc-q{font-family:'IBM Plex Mono',monospace;font-size:36px;font-weight:600;line-height:1}
+  .piewrap .pc-l{font-size:11px;color:var(--slate);margin-top:5px;text-transform:uppercase;letter-spacing:.06em}
+  .pleg{display:flex;flex-direction:column;gap:11px;padding:0 4px}
+  .pleg .parrow-top{align-self:center;width:40px;height:40px;border-radius:50%;background:var(--amber);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:700;margin-bottom:2px}
   .plg .plh{display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px}
   .plg .plh .sw{width:13px;height:13px;border-radius:3px;flex-shrink:0}
-  .plg .pli{font-size:11.5px;color:var(--slate);padding-left:21px;line-height:1.5}
+  .plg .pli{font-size:11px;color:var(--slate);padding-left:21px;line-height:1.5}
   .plg .pli .sh{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:middle}
-  /* theses */
-  .kpi-theses{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
-  .kth{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 18px;display:flex;align-items:center;gap:14px}
-  .kth .kthn{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;white-space:nowrap}
-  .kth .kthn .ar{color:var(--amber)}
-  .kth .ktht{font-size:12.5px;color:var(--ink-text);line-height:1.4}
-  .kth.quant .kthn{color:var(--slate)}
-  .kth.qual .kthn{color:var(--navy)}
-  .kth.full{grid-column:1 / -1;background:var(--amber-glow);border-color:transparent}
-  .kth.full .ktht b{color:#A66A12}
+  /* who-calculates cards */
+  .whorow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+  .whocard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 18px}
+  .whoh{display:flex;align-items:center;gap:9px;font-weight:600;font-size:13.5px;color:var(--ink-text);margin-bottom:11px}
+  .whoh .wd{width:11px;height:11px;border-radius:3px;flex-shrink:0}
+  .wholine{display:flex;gap:9px;align-items:flex-start;font-size:12px;line-height:1.35;margin-bottom:7px}
+  .wholine:last-child{margin-bottom:0}
+  .wholine .wtag{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap;margin-top:1px}
+  .wholine .wtag.now{background:#EDEFF3;color:var(--slate)}
+  .wholine .wtag.aft{background:var(--teal-soft);color:var(--teal)}
+  .wholine .wtxt{color:var(--ink-text)}
+  .whonote{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--slate);margin-top:14px;text-align:center}
+  .whonote b{color:#A66A12}
+
+  /* ---- slide 3: investment value split ---- */
+  .split2{display:grid;grid-template-columns:1fr 1px 1fr;gap:0;flex:1;margin-top:6px}
+  .split-div{background:var(--line);width:1px}
+  .split-col{padding:6px 30px;display:flex;flex-direction:column}
+  .split-col.left{padding-left:0}.split-col.right{padding-right:0}
+  .sphead{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+  .sphead .spicon{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:15px}
+  .sphead.base .spicon{background:var(--navy)}
+  .sphead.prod .spicon{background:var(--teal)}
+  .sphead .sphn{font-family:'Spectral',serif;font-weight:700;font-size:22px;color:var(--ink-text);line-height:1.1}
+  .sphead .sphsub{font-size:11.5px;color:var(--slate);margin-top:2px}
+  .spitem{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
+  .spitem:last-child{border-bottom:none}
+  .spitem .spn{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff}
+  .split-col.left .spn{background:var(--navy)}
+  .split-col.right .spn{background:var(--teal)}
+  .spitem .spt{font-weight:600;font-size:14.5px;color:var(--ink-text);margin-bottom:3px}
+  .spitem .spd{font-size:12.5px;color:var(--slate);line-height:1.4}
+  .spcover{margin-top:auto;display:flex;align-items:center;gap:18px;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px 20px}
+  .spcover .scbig{font-family:'IBM Plex Mono',monospace;font-size:34px;font-weight:600;color:var(--good);line-height:1;white-space:nowrap}
+  .spcover .scbig .arr{font-size:20px;color:var(--slate-light)}.spcover .scbig .tgt{color:var(--amber)}
+  .spcover .sctext{font-size:12px;color:var(--ink-text);line-height:1.4}
+  .spnote{margin-top:14px;font-size:12.5px;color:var(--slate);line-height:1.45}
+  .spnote b{color:var(--navy)}
+  .split-tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:3px 9px;border-radius:5px;display:inline-block;margin-bottom:14px}
+  .split-tag.base{background:rgba(27,42,82,.1);color:var(--navy)}
+  .split-tag.prod{background:var(--teal-soft);color:var(--teal)}
 
   /* ---- 3-component quality ---- */
   .qcomp{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:10px}
@@ -633,14 +662,24 @@
       </div>
     </div>
 
-    <div class="kpi-theses">
-      <div class="kth quant"><div class="kthn">50 <span class="ar">→</span> 40</div>
-        <div class="ktht"><b>Количественные</b> (количество идей + контент): доля снижается</div></div>
-      <div class="kth qual"><div class="kthn">50 <span class="ar">→</span> 60</div>
-        <div class="ktht"><b>Качественные</b> (точность + альфа + CSI): доля растёт</div></div>
-      <div class="kth full"><div class="kthn" style="color:#A66A12">CSI</div>
-        <div class="ktht"><b>Ключевое изменение:</b> CSI считаем через внутренние системы, а не через собственный сбор обратной связи — метрика становится объективной и автоматической</div></div>
+    <div class="whorow">
+      <div class="whocard">
+        <div class="whoh"><span class="wd" style="background:var(--navy)"></span>Инвестидеи</div>
+        <div class="wholine"><span class="wtag now">сейчас</span><span class="wtxt">считает ДИА вручную</span></div>
+        <div class="wholine"><span class="wtag aft">2026</span><span class="wtxt">после автоматизации — в блоке «Качество продукта»</span></div>
+      </div>
+      <div class="whocard">
+        <div class="whoh"><span class="wd" style="background:var(--amber)"></span>Контент · отчёты</div>
+        <div class="wholine"><span class="wtag now">сейчас</span><span class="wtxt">считает ДИА вручную</span></div>
+        <div class="wholine"><span class="wtag now">2026</span><span class="wtxt">пока остаётся ручным расчётом</span></div>
+      </div>
+      <div class="whocard">
+        <div class="whoh"><span class="wd" style="background:var(--teal)"></span>CSI</div>
+        <div class="wholine"><span class="wtag now">сейчас</span><span class="wtxt">собственный сбор обратной связи</span></div>
+        <div class="wholine"><span class="wtag aft">2026</span><span class="wtxt">через внутренние системы — автоматически</span></div>
+      </div>
     </div>
+    <div class="whonote">Количественные <b>50 → 40</b> · качественные <b>50 → 60</b> — соотношение смещается в сторону качества</div>
   </section>
 
   <script>
@@ -678,30 +717,48 @@
     })();
   </script>
 
-  <!-- 4 · СИСТЕМА КАЧЕСТВА ПРОДУКТОВ -->
+  <!-- 4 · ИНВЕСТИЦИОННАЯ ЦЕННОСТЬ: АКТИВЫ + ПРОДУКТ -->
   <section class="slide light">
-    <div class="eyebrow"><span class="num">03</span><span class="tick"></span>ИЗМЕРИМОЕ КАЧЕСТВО</div>
-    <div class="head-row"><h2>Рейтинг качества продуктов: три компонента</h2>
-      <div class="sub">Каждый продукт оценивается по объективной системе — качество измеряется, а не декларируется</div></div>
-    <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
-    <div class="qcomp">
-      <div class="qc"><div class="qn">1</div><div class="qt">Соответствие риск-профилю</div>
-        <div class="qd">Фактический риск продукта совпадает с заявленным для клиента уровнем — нет скрытого превышения</div>
-        <div class="qd" style="margin-top:10px;color:var(--navy);font-weight:500">Как мерим: сравнение реализованной волатильности с риск-категорией продукта</div></div>
-      <div class="qc"><div class="qn">2</div><div class="qt">Соответствие обещанной доходности</div>
-        <div class="qd">Реализованная доходность сверяется с тем, что было обещано при запуске идеи или продукта</div>
-        <div class="qd" style="margin-top:10px;color:var(--teal);font-weight:500">Как мерим: факт vs целевая доходность на горизонте идеи</div></div>
-      <div class="qc"><div class="qn">3</div><div class="qt">Инвестиционная ценность</div>
-        <div class="qd">Коэффициент Шарпа (доходность с поправкой на риск) — оценка качества результата, а не только его величины</div>
-        <div class="qd" style="margin-top:10px;color:#A66A12;font-weight:500">Как мерим: Sharpe ratio относительно бенчмарка и аналогов</div></div>
-    </div>
-    <div class="qspace"></div>
-    <div class="qcover">
-      <div class="qbig">97%<span class="arr"> → </span><span class="tgt">100%</span></div>
-      <div class="qtext">сегодня <b>97% продуктов</b> покрыты рейтингом качества. Цель 2026 — <b>полное покрытие через автоматизацию</b>: оценка качества встроена в процесс, а не делается вручную постфактум.
-        <div style="margin-top:10px"><span class="vbadge ok">✓ верифицировано</span></div>
+    <div class="eyebrow"><span class="num">03</span><span class="tick"></span>ФОКУС НА ЦЕННОСТИ</div>
+    <div class="head-row"><h2>Инвестиционная ценность: от базовых активов до продукта</h2>
+      <div class="sub">Качество измеряется на двух уровнях — ценность самих активов и качество упаковки в продукт для клиента</div></div>
+    <div class="split2">
+
+      <div class="split-col left">
+        <span class="split-tag base">Уровень 1</span>
+        <div class="sphead base">
+          <div class="spicon">А</div>
+          <div><div class="sphn">Базовые активы</div><div class="sphsub">ценность акций, облигаций и инвестидей</div></div>
+        </div>
+        <div class="spitem"><div class="spn">1</div><div><div class="spt">Точность инвестидей</div>
+          <div class="spd">Доля идей, попавших в рыночный результат — связана напрямую с KPI аналитика</div></div></div>
+        <div class="spitem"><div class="spn">2</div><div><div class="spt">Альфа — обгон рынка</div>
+          <div class="spd">Доходность сверх индекса по реализованным идеям, а не просто рост вместе с рынком</div></div></div>
+        <div class="spitem"><div class="spn">3</div><div><div class="spt">БКС Рейтинг — 4 фактора</div>
+          <div class="spd">Систематическая оценка каждой бумаги: взгляд аналитика, качество бизнеса, оценка, динамика</div></div></div>
+        <div class="spnote">Ценность актива — это <b>правильный отбор</b>: точные идеи, обгоняющие рынок, на основе объективной оценки.</div>
       </div>
-    </div>
+
+      <div class="split-div"></div>
+
+      <div class="split-col right">
+        <span class="split-tag prod">Уровень 2</span>
+        <div class="sphead prod">
+          <div class="spicon">П</div>
+          <div><div class="sphn">Качество продукта</div><div class="sphsub">как актив упакован для клиента</div></div>
+        </div>
+        <div class="spitem"><div class="spn">1</div><div><div class="spt">Соответствие риск-профилю</div>
+          <div class="spd">Фактический риск совпадает с заявленным уровнем — нет скрытого превышения</div></div></div>
+        <div class="spitem"><div class="spn">2</div><div><div class="spt">Соответствие обещанной доходности</div>
+          <div class="spd">Реализованная доходность сверяется с обещанной при запуске</div></div></div>
+        <div class="spitem"><div class="spn">3</div><div><div class="spt">Инвестиционная ценность · Шарп</div>
+          <div class="spd">Коэффициент Шарпа — качество результата с поправкой на риск, не только величина</div></div></div>
+        <div class="spcover">
+          <div class="scbig">97%<span class="arr"> → </span><span class="tgt">100%</span></div>
+          <div class="sctext"><b>97% продуктов</b> покрыты рейтингом качества. Цель 2026 — полное покрытие через автоматизацию. <span class="vbadge ok" style="margin-left:4px">✓ верифиц.</span></div>
+        </div>
+      </div>
+
     </div>
   </section>
 
