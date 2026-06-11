@@ -832,67 +832,9 @@
     </div>
   </section>
 
-  <!-- 5 · ВНУТРЕННИЕ КЛИЕНТЫ -->
-  <section class="slide light">
-    <div class="eyebrow"><span class="num">04</span><span class="tick"></span>ОПЕРАЦИОННЫЙ КОНТУР</div>
-    <div class="head-row"><h2>Внутренние клиенты: аллокация аналитики</h2>
-      <div class="sub">15+ подразделений-заказчиков — доля потребления аналитики по бюджету 2026. Топ-3 блока дают ~89%</div></div>
-    <div class="clients-grid">
-      <div>
-        <div class="col-h">Заказчики и доля аллокации</div>
-        <div class="alloc" id="alloc"></div>
-        <div class="alloc-note">Крупнейшие заказчики: <b>Премьер 28.6%</b>, <b>КБО 19.2%</b>, <b>СП 16.0%</b>. ПИБ, CIB, ДРВ — пока 0%.</div>
-      </div>
-      <div>
-        <div class="col-h">Каналы и ритм доставки</div>
-        <div class="chan">
-          <div class="chan-item"><div class="t"><span class="n">1</span>HTML-рассылки<span class="freq">ежедневно</span></div>
-            <div class="d">Дайджесты и тематические обзоры по подписке подразделений</div></div>
-          <div class="chan-item"><div class="t"><span class="n">2</span>Проактивные сообщения<span class="freq">в реальном времени</span></div>
-            <div class="d">Чаты подразделений, оперативные комментарии на события</div></div>
-          <div class="chan-item"><div class="t"><span class="n">3</span>Приложение БКС<span class="freq">постоянно</span></div>
-            <div class="d">Контент для розничных клиентов напрямую в продукте</div></div>
-          <div class="chan-item"><div class="t"><span class="n">4</span>Через советников<span class="freq">по запросу</span></div>
-            <div class="d">Адаптированный контент для конечных клиентов советника</div></div>
-        </div>
-        <div class="note">Аудитория — розничные инвесторы: приоритет простоты и ясности над глубиной</div>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    (function(){
-      const blocks=[
-        {b:'Этажи',  sub:'37.4%', items:[['Премьер',28.6],['Ультима',6.7],['Сегменты',2.1]]},
-        {b:'Брокер', sub:'29.2%', items:[['КБО',19.2],['ИТ — РР и МР',6.3],['Форекс / CFD',3.7]]},
-        {b:'Капитал',sub:'22.6%', items:[['СП',16.0],['УК',2.6],['СК',2.2],['ОА',1.3],['Pre-IPO',0.5]]},
-        {b:'Дубай',  sub:'4.3%',  items:[['Брокер КБО',3.2],['Сети',0.6],['Брокер Трейдинг',0.5]]},
-        {b:'КИБ',    sub:'4.2%',  items:[['DCM',4.2]]},
-        {b:'ИББ',    sub:'2.3%',  items:[['ДОПИ',2.3]]},
-        {b:'Банк',   sub:'0.2%',  items:[['Банк',0.2]]},
-      ];
-      const max=28.6;
-      const root=document.getElementById('alloc'); if(!root) return;
-      blocks.forEach(blk=>{
-        const g=document.createElement('div'); g.className='alloc-grp';
-        let html='<div class="alloc-gh"><span class="agn">'+blk.b+'</span><span class="ags">'+blk.sub+'</span></div>';
-        blk.items.forEach(([name,v])=>{
-          const w=(v/max)*100;
-          const top=v>=15;
-          const col=top?'var(--navy)':(v>=4?'#33508F':'#8FA0C4');
-          html+='<div class="alloc-row'+(top?' top':'')+'">'+
-            '<span class="arn">'+name+'</span>'+
-            '<span class="art"><span class="arf" style="width:'+w+'%;background:'+col+'"></span></span>'+
-            '<span class="arv">'+v.toFixed(1)+'%</span></div>';
-        });
-        g.innerHTML=html; root.appendChild(g);
-      });
-    })();
-  </script>
-
   <!-- 13 · КЛЮЧЕВЫЕ ИНИЦИАТИВЫ 2026 -->
   <section class="slide light">
-    <div class="eyebrow"><span class="num">05</span><span class="tick"></span>ЧТО ДЕЛАЕМ В ЭТОМ ГОДУ</div>
+    <div class="eyebrow"><span class="num">04</span><span class="tick"></span>ЧТО ДЕЛАЕМ В ЭТОМ ГОДУ</div>
     <div class="head-row"><h2>Ключевые инициативы 2026</h2>
       <div class="sub">Шесть направлений, в которых концентрируем усилия дирекции в этом году</div></div>
     <div class="init-grid six">
@@ -961,6 +903,64 @@
 
     </div>
   </section>
+
+  <!-- 5 · ВНУТРЕННИЕ КЛИЕНТЫ -->
+  <section class="slide light">
+    <div class="eyebrow"><span class="num">05</span><span class="tick"></span>ОПЕРАЦИОННЫЙ КОНТУР</div>
+    <div class="head-row"><h2>Внутренние клиенты: аллокация аналитики</h2>
+      <div class="sub">15+ подразделений-заказчиков — доля потребления аналитики по бюджету 2026. Топ-3 блока дают ~89%</div></div>
+    <div class="clients-grid">
+      <div>
+        <div class="col-h">Заказчики и доля аллокации</div>
+        <div class="alloc" id="alloc"></div>
+        <div class="alloc-note">Крупнейшие заказчики: <b>Премьер 28.6%</b>, <b>КБО 19.2%</b>, <b>СП 16.0%</b>. ПИБ, CIB, ДРВ — пока 0%.</div>
+      </div>
+      <div>
+        <div class="col-h">Каналы и ритм доставки</div>
+        <div class="chan">
+          <div class="chan-item"><div class="t"><span class="n">1</span>HTML-рассылки<span class="freq">ежедневно</span></div>
+            <div class="d">Дайджесты и тематические обзоры по подписке подразделений</div></div>
+          <div class="chan-item"><div class="t"><span class="n">2</span>Проактивные сообщения<span class="freq">в реальном времени</span></div>
+            <div class="d">Чаты подразделений, оперативные комментарии на события</div></div>
+          <div class="chan-item"><div class="t"><span class="n">3</span>Приложение БКС<span class="freq">постоянно</span></div>
+            <div class="d">Контент для розничных клиентов напрямую в продукте</div></div>
+          <div class="chan-item"><div class="t"><span class="n">4</span>Через советников<span class="freq">по запросу</span></div>
+            <div class="d">Адаптированный контент для конечных клиентов советника</div></div>
+        </div>
+        <div class="note">Аудитория — розничные инвесторы: приоритет простоты и ясности над глубиной</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function(){
+      const blocks=[
+        {b:'Этажи',  sub:'37.4%', items:[['Премьер',28.6],['Ультима',6.7],['Сегменты',2.1]]},
+        {b:'Брокер', sub:'29.2%', items:[['КБО',19.2],['ИТ — РР и МР',6.3],['Форекс / CFD',3.7]]},
+        {b:'Капитал',sub:'22.6%', items:[['СП',16.0],['УК',2.6],['СК',2.2],['ОА',1.3],['Pre-IPO',0.5]]},
+        {b:'Дубай',  sub:'4.3%',  items:[['Брокер КБО',3.2],['Сети',0.6],['Брокер Трейдинг',0.5]]},
+        {b:'КИБ',    sub:'4.2%',  items:[['DCM',4.2]]},
+        {b:'ИББ',    sub:'2.3%',  items:[['ДОПИ',2.3]]},
+        {b:'Банк',   sub:'0.2%',  items:[['Банк',0.2]]},
+      ];
+      const max=28.6;
+      const root=document.getElementById('alloc'); if(!root) return;
+      blocks.forEach(blk=>{
+        const g=document.createElement('div'); g.className='alloc-grp';
+        let html='<div class="alloc-gh"><span class="agn">'+blk.b+'</span><span class="ags">'+blk.sub+'</span></div>';
+        blk.items.forEach(([name,v])=>{
+          const w=(v/max)*100;
+          const top=v>=15;
+          const col=top?'var(--navy)':(v>=4?'#33508F':'#8FA0C4');
+          html+='<div class="alloc-row'+(top?' top':'')+'">'+
+            '<span class="arn">'+name+'</span>'+
+            '<span class="art"><span class="arf" style="width:'+w+'%;background:'+col+'"></span></span>'+
+            '<span class="arv">'+v.toFixed(1)+'%</span></div>';
+        });
+        g.innerHTML=html; root.appendChild(g);
+      });
+    })();
+  </script>
 
   <!-- 2d · БКС ИНДЕКС -->
   <section class="slide light">
