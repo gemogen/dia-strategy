@@ -256,6 +256,25 @@
   .alloc-note{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--slate);margin-top:8px;line-height:1.5}
   .alloc-note b{color:var(--navy)}
 
+  /* ---- key initiatives 2026 ---- */
+  .init-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;flex:1;margin-top:6px}
+  .init{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+  .init::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px}
+  .init.ai::before{background:var(--navy)}
+  .init.quant::before{background:var(--teal)}
+  .init.client::before{background:var(--amber)}
+  .init.quality::before{background:#5E7CBA}
+  .init-h{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+  .init-h .ico{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:15px}
+  .init.ai .ico{background:var(--navy)}.init.quant .ico{background:var(--teal)}
+  .init.client .ico{background:var(--amber)}.init.quality .ico{background:#5E7CBA}
+  .init-h .ht{font-family:'Spectral',serif;font-weight:700;font-size:19px;color:var(--ink-text);line-height:1.1}
+  .init-h .hs{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate-light);margin-top:2px}
+  .init ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+  .init li{font-size:12.5px;color:var(--ink-text);line-height:1.35;padding-left:16px;position:relative}
+  .init li::before{content:'';position:absolute;left:0;top:6px;width:6px;height:6px;border-radius:50%;background:var(--amber)}
+  .init li b{font-weight:600}
+
   /* ---- 3-component quality ---- */
   .qcomp{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:10px}
   .qspace{height:26px}
@@ -1031,9 +1050,63 @@
     </div>
   </section>
 
-  <!-- 13 · РОАДМАП -->
+  <!-- 13 · КЛЮЧЕВЫЕ ИНИЦИАТИВЫ 2026 -->
   <section class="slide light">
-    <div class="eyebrow"><span class="num">12</span><span class="tick"></span>ПЛАН РЕАЛИЗАЦИИ</div>
+    <div class="eyebrow"><span class="num">12</span><span class="tick"></span>ЧТО ДЕЛАЕМ В ЭТОМ ГОДУ</div>
+    <div class="head-row"><h2>Ключевые инициативы 2026</h2>
+      <div class="sub">Четыре направления, в которых концентрируем усилия дирекции в этом году</div></div>
+    <div class="init-grid">
+
+      <div class="init ai">
+        <div class="init-h"><div class="ico">AI</div>
+          <div><div class="ht">Искусственный интеллект</div><div class="hs">Фабрика аналитики</div></div></div>
+        <ul>
+          <li>Покрытие <b>150 → 500</b> компаний (весь S&P 500) без роста команды</li>
+          <li>ИИ генерирует контент вокруг <b>верифицированного факт-слоя</b></li>
+          <li>Контроль: разделение факт/нарратив, защита от галлюцинаций, обратная связь L2</li>
+          <li>База знаний → прикладные слои: дашборды, RAG-ассистент для советников</li>
+        </ul>
+      </div>
+
+      <div class="init quant">
+        <div class="init-h"><div class="ico">Q</div>
+          <div><div class="ht">Квантовый подход</div><div class="hs">Систематизация</div></div></div>
+        <ul>
+          <li><b>БКС Рейтинг</b> — 4-факторная систематическая оценка бумаг</li>
+          <li>Квантовый поток: ~80% бумаг через рейтинг, аналитик верифицирует</li>
+          <li>Бэктест исторической доходности рейтинга</li>
+          <li>Квант дополняет фундаментальный анализ, не заменяет его</li>
+        </ul>
+      </div>
+
+      <div class="init client">
+        <div class="init-h"><div class="ico">К</div>
+          <div><div class="ht">Фокус на внутреннего клиента</div><div class="hs">Спрос и синергии</div></div></div>
+        <ul>
+          <li>Аллокация аналитики под <b>реальный спрос заказчиков</b> (топ-3 блока ~89%)</li>
+          <li>Поиск внутренних синергий между подразделениями</li>
+          <li>Розничная подача: простота и ясность (бенчмарк Т-Инвестиции)</li>
+          <li>Закрытие разрывов восприятия из конкурентного бенчмарка</li>
+        </ul>
+      </div>
+
+      <div class="init quality">
+        <div class="init-h"><div class="ico">✓</div>
+          <div><div class="ht">Полный цикл контроля качества</div><div class="hs">Активы + продукты</div></div></div>
+        <ul>
+          <li><b>Уровень 1 — активы:</b> точность идей, альфа, БКС Рейтинг</li>
+          <li><b>Уровень 2 — продукты:</b> риск-профиль, обещанная доходность, Шарп</li>
+          <li>Покрытие рейтингом <b>97% → 100%</b> через автоматизацию</li>
+          <li>KPI: CSI через внутренние системы, инвестидеи — в блоке качества</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 14 · РОАДМАП -->
+  <section class="slide light">
+    <div class="eyebrow"><span class="num">13</span><span class="tick"></span>ПЛАН РЕАЛИЗАЦИИ</div>
     <div class="head-row"><h2>Роадмап до конца 2026</h2>
       <div class="sub">От подтверждённого фундамента — к запуску фабрики и первым прикладным уровням</div></div>
     <div class="road"><div class="road-track">
@@ -1060,9 +1133,9 @@
     </div></div>
   </section>
 
-  <!-- 14 · KPI ФИНАЛ (dark) -->
+  <!-- 15 · KPI ФИНАЛ (dark) -->
   <section class="slide dark">
-    <div class="eyebrow"><span class="num">13</span><span class="tick"></span>УПРАВЛЕНИЕ РЕЗУЛЬТАТОМ</div>
+    <div class="eyebrow"><span class="num">14</span><span class="tick"></span>УПРАВЛЕНИЕ РЕЗУЛЬТАТОМ</div>
     <div class="head-row"><h2>KPI и метрики качества на выходе</h2>
       <div class="sub">Три измерения результата — инвестиционное качество, операционная эффективность, клиентский результат</div></div>
     <div class="kpicols">
