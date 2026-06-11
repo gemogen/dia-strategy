@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Стратегия аналитической дирекции 2026–2028</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0C1322;--ink-2:#13203A;--navy:#1B2A52;--navy-soft:#22325E;
+    --paper:#F4F5F7;--card:#FFFFFF;--amber:#D9952A;--amber-bright:#EBA838;
+    --teal:#138A7E;--teal-soft:#E4F1EF;--ink-text:#0E1626;--slate:#586079;
+    --slate-light:#8A93A8;--line:#E4E7EC;--good:#1F9D6B;--bad:#D45B5B;
+    --on-dark:#EEF1F6;--on-dark-mute:#94A2BE;--amber-glow:rgba(217,149,42,.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--ink-text);-webkit-font-smoothing:antialiased}
+  .deck{height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;scroll-behavior:smooth}
+  .deck::-webkit-scrollbar{display:none}
+  .deck{-ms-overflow-style:none;scrollbar-width:none}
+  .slide{min-height:100vh;scroll-snap-align:start;scroll-snap-stop:always;
+    padding:54px 80px 64px;position:relative;display:flex;flex-direction:column;overflow:hidden}
+  .slide.light{background:var(--paper);color:var(--ink-text)}
+  .slide.dark{background:var(--ink);color:var(--on-dark)}
+
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.22em;
+    font-weight:500;text-transform:uppercase;display:flex;align-items:center;gap:14px;margin-bottom:16px}
+  .light .eyebrow{color:var(--slate)}.dark .eyebrow{color:var(--on-dark-mute)}
+  .eyebrow .num{color:var(--amber);font-weight:600}
+  .eyebrow .tick{width:26px;height:1px;background:var(--amber);display:inline-block}
+
+  h1{font-family:'Spectral',serif;font-weight:800;font-size:60px;line-height:1.02;letter-spacing:-.015em}
+  h2{font-family:'Spectral',serif;font-weight:700;font-size:34px;line-height:1.06;letter-spacing:-.01em;margin-bottom:6px}
+  .light h2{color:var(--ink-text)}.dark h2{color:var(--on-dark)}
+  .sub{font-size:15px;color:var(--slate);max-width:760px;line-height:1.5}
+  .dark .sub{color:var(--on-dark-mute)}
+  .head-row{margin-bottom:24px}
+  .mono{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
+
+  /* verification badge */
+  .vbadge{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;
+    text-transform:uppercase;font-weight:600;padding:3px 8px;border-radius:5px;
+    display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+  .vbadge.req{background:rgba(217,149,42,.14);color:#A66A12;border:1px solid rgba(217,149,42,.35)}
+  .vbadge.ok{background:rgba(31,157,107,.12);color:#15784F;border:1px solid rgba(31,157,107,.3)}
+  .dark .vbadge.req{color:var(--amber-bright);background:rgba(217,149,42,.12)}
+  .dark .vbadge.ok{color:#46C690;background:rgba(31,157,107,.14)}
+
+  /* ---- HERO ---- */
+  .hero{justify-content:center}
+  .hero .grid-bg{position:absolute;inset:0;background-image:
+    linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+    background-size:46px 46px;mask-image:radial-gradient(ellipse 80% 70% at 30% 40%,#000 30%,transparent 80%);pointer-events:none}
+  .hero h1{font-size:80px;max-width:13ch}
+  .hero .lead{color:var(--amber-bright);font-family:'IBM Plex Mono',monospace;font-size:14px;
+    letter-spacing:.2em;text-transform:uppercase;margin-bottom:26px;display:flex;align-items:center;gap:14px}
+  .cursor{width:11px;height:20px;background:var(--amber);display:inline-block;animation:blink 1.15s steps(1) infinite;vertical-align:middle}
+  @keyframes blink{50%{opacity:0}}
+  .hero .tagline{font-family:'Spectral',serif;font-style:italic;font-weight:500;font-size:22px;
+    color:var(--on-dark-mute);margin-top:22px;max-width:38ch;line-height:1.4}
+  .hero-metrics{display:flex;gap:0;margin-top:48px;border-top:1px solid rgba(255,255,255,.12);padding-top:26px;max-width:960px}
+  .hm{flex:1;padding-right:24px}
+  .hm + .hm{padding-left:32px;border-left:1px solid rgba(255,255,255,.1)}
+  .hm .v{font-family:'IBM Plex Mono',monospace;font-size:32px;font-weight:600;color:var(--on-dark);letter-spacing:-.02em}
+  .hm .v .ar{color:var(--amber)}
+  .hm .l{font-size:12px;color:var(--on-dark-mute);margin-top:8px;line-height:1.35}
+  .hero-foot{position:absolute;bottom:46px;left:80px;right:210px;display:flex;justify-content:space-between;
+    align-items:center;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--on-dark-mute);
+    letter-spacing:.05em;border-top:1px solid rgba(255,255,255,.08);padding-top:18px}
+
+  /* ---- DATA BLOCK (slide 2 result) ---- */
+  .result-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:20px;flex:1;align-content:stretch;margin-top:6px}
+  .dblock{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;
+    display:flex;flex-direction:column;position:relative}
+  .dblock .dh{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;gap:8px}
+  .dblock .dt{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;
+    letter-spacing:.1em;color:var(--slate)}
+  .dblock .dbig{font-family:'IBM Plex Mono',monospace;font-size:38px;font-weight:600;line-height:1;letter-spacing:-.02em;margin-bottom:4px}
+  .dblock .dbig.good{color:var(--good)}.dblock .dbig.amber{color:var(--amber)}.dblock .dbig.navy{color:var(--navy)}
+  .dblock .dbig.small{font-size:26px;font-family:'Spectral',serif;font-weight:700}
+  .dblock .dcap{font-size:12.5px;color:var(--slate);line-height:1.4;margin-bottom:14px;font-weight:500}
+  .dblock .chart{margin-top:18px}
+
+  /* ---- slide 2 layout: three equal blocks ---- */
+  .s2grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;flex:1;margin-top:8px}
+  .s2col{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;display:flex;flex-direction:column}
+  .s2col .c2top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:4px}
+  .s2col .c2t{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--slate);line-height:1.3}
+  .s2col .c2sub{font-size:11.5px;color:var(--slate);line-height:1.35;margin-bottom:6px}
+  .c2mini{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--slate);margin-bottom:10px}
+  .c2mini b{color:var(--navy);font-weight:600}.c2mini .g{color:var(--good);font-weight:600}
+
+  /* ---- strategies stacked bar chart (narrow column) ---- */
+  .stratpanel{display:flex;flex-direction:column;flex:1}
+  .sp-legend{display:flex;flex-direction:column;gap:5px;margin-bottom:12px;font-size:11px;color:var(--slate)}
+  .sp-legend .lg{display:flex;align-items:center;gap:7px}
+  .sp-legend .sw{width:13px;height:10px;border-radius:3px}
+  .schart{display:flex;flex-direction:column;gap:8px;flex:1;justify-content:flex-start;margin-top:6px}
+  .sgrp{display:grid;grid-template-columns:92px 1fr;align-items:center;gap:8px}
+  .sgrp.bench-row{margin-top:6px;padding-top:8px;border-top:1px dashed var(--line)}
+  .sgrp.bench-row .sgname{font-style:italic}
+  .sgname{font-size:11px;color:var(--ink-text);font-weight:500;text-align:right;line-height:1.15}
+  .sbarwrap{position:relative;height:18px}
+  .sbtrack{position:absolute;inset:0;background:#F2F3F6;border-radius:4px}
+  .szero{position:absolute;top:-2px;bottom:-2px;width:1px;background:var(--slate-light);z-index:3}
+  .sseg{position:absolute;top:0;height:18px;z-index:2}
+  .sseg.after{border-radius:4px 0 0 4px}
+  .sseg.fee{border-radius:0 4px 4px 0;background:var(--amber)}
+  .sval{position:absolute;top:0;height:18px;line-height:18px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;z-index:4;white-space:nowrap}
+  .sval.inwhite{color:#fff;right:4px}
+  .sval.feeout{color:#A66A12}
+  .sval.negout{color:#D45B5B}
+  .saxis{display:grid;grid-template-columns:92px 1fr;gap:9px;margin-top:6px}
+  .saxislabels{position:relative;height:12px;font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--slate-light)}
+  .saxislabels span{position:absolute;transform:translateX(-50%)}
+
+  /* ---- top-quartile mini chart (side block) ---- */
+  .tq{display:flex;flex-direction:column;gap:7px;margin-top:12px}
+  .tq-sect{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate-light);margin:6px 0 2px}
+  .tqrow{display:grid;grid-template-columns:38px 1fr 46px;align-items:center;gap:8px}
+  .tqrow .tqn{font-size:11.5px;color:var(--slate);font-weight:500;text-align:right}
+  .tqrow.dia .tqn{color:var(--navy);font-weight:700}
+  .tqtrack{position:absolute;inset:0;background:#F2F3F6;border-radius:4px}
+  .tqbarwrap{position:relative;height:16px}
+  .tqfill{position:absolute;top:0;height:16px;border-radius:4px}
+  .tqz{position:absolute;top:-2px;bottom:-2px;width:1px;background:var(--slate-light);z-index:3}
+  .tqrow .tqv{font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;color:var(--slate);text-align:left}
+  .tqrow.dia .tqv{color:var(--navy);font-weight:700}
+  .tqrow .tqv.neg{color:#D45B5B}
+
+  /* ---- asset growth (column 3) ---- */
+  .share-row{display:flex;gap:0;margin:8px 0 10px}
+  .share{flex:1;padding-right:10px}
+  .share + .share{padding-left:12px;border-left:1px solid var(--line)}
+  .share .shv{font-family:'IBM Plex Mono',monospace;font-size:24px;font-weight:600;color:var(--navy);line-height:1}
+  .share .shv.ph{color:var(--slate-light)}
+  .share .shl{font-size:10.5px;color:var(--slate);margin-top:5px;line-height:1.25}
+  .growth-legend{display:flex;gap:16px;margin:4px 0 8px;font-size:11px;color:var(--slate)}
+  .growth-legend .gl{display:flex;align-items:center;gap:6px}
+  .growth-legend .gl .gln{font-family:'IBM Plex Mono',monospace;font-weight:600;margin-left:auto}
+  .growth-legend .sw{width:16px;height:3px;border-radius:2px}
+  .growth-chart{flex:1;display:flex;flex-direction:column;justify-content:flex-end}
+
+  /* mini charts */
+  .chart svg{width:100%;display:block;overflow:visible}
+  .axislabel{font-family:'IBM Plex Mono',monospace;font-size:8.5px;fill:var(--slate-light)}
+
+  /* ---- KPI before/after ---- */
+  .kpiba{display:grid;grid-template-columns:1fr 56px 1fr;gap:22px;align-items:stretch;flex:1;margin-top:6px}
+  .kpicard{border-radius:16px;padding:24px 26px;display:flex;flex-direction:column}
+  .kpicard.before{background:var(--card);border:1px solid var(--line)}
+  .kpicard.after{background:var(--ink);color:#fff}
+  .kpicard .kch{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+  .kpicard .ktag{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+  .kpicard.before .ktag{color:var(--slate)}.kpicard.after .ktag{color:var(--on-dark-mute)}
+  .kpicard .kyear{font-family:'Spectral',serif;font-weight:700;font-size:22px}
+  .kpicard.before .kyear{color:var(--ink-text)}.kpicard.after .kyear{color:var(--amber-bright)}
+  .kbar{margin-bottom:13px}
+  .kbar .kbl{display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:5px}
+  .kpicard.before .kbl .knm{color:var(--ink-text)}.kpicard.after .kbl .knm{color:var(--on-dark)}
+  .kbl .kv{font-family:'IBM Plex Mono',monospace;font-weight:600}
+  .kpicard.before .kv{color:var(--slate)}.kpicard.after .kv{color:var(--amber-bright)}
+  .ktrack{height:8px;border-radius:4px;overflow:hidden}
+  .kpicard.before .ktrack{background:#E8EAEE}.kpicard.after .ktrack{background:rgba(255,255,255,.1)}
+  .kfill{height:100%;border-radius:4px}
+  .kpicard.before .kfill{background:var(--slate-light)}.kpicard.after .kfill{background:var(--amber)}
+  .kfill.q{opacity:.55}
+  .kmid{display:flex;align-items:center;justify-content:center}
+  .kmid .karrow{width:44px;height:44px;border-radius:50%;background:var(--amber);color:var(--ink);
+    display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700}
+  .kpi-legend{display:flex;gap:24px;margin-top:16px;font-size:12.5px;color:var(--slate)}
+  .kpi-legend .lg{display:flex;align-items:center;gap:7px}
+  .kpi-legend .sw{width:13px;height:13px;border-radius:3px}
+  .insight{margin-top:18px;background:var(--amber-glow);border-radius:12px;padding:15px 20px;
+    font-size:14px;color:var(--ink-text);line-height:1.45}
+  .insight b{color:#A66A12}
+
+  /* ---- KPI pies ---- */
+  .pies{display:grid;grid-template-columns:1fr 1.15fr 1fr;align-items:center;margin-top:2px;gap:14px}
+  .piecard{display:flex;flex-direction:column;align-items:center;gap:12px}
+  .piecard .ptag{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);font-weight:600;text-align:center;line-height:1.3}
+  .piewrap{position:relative;width:210px;height:210px}
+  .piewrap svg{width:100%;height:100%;transform:rotate(-90deg)}
+  .piewrap .pcenter{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .piewrap .pc-q{font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;line-height:1}
+  .piewrap .pc-l{font-size:10px;color:var(--slate);margin-top:4px;text-transform:uppercase;letter-spacing:.06em}
+  /* center legend block */
+  .pleg{display:flex;flex-direction:column;gap:12px;padding:0 6px}
+  .pleg .parrow-top{align-self:center;width:42px;height:42px;border-radius:50%;background:var(--amber);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;margin-bottom:2px}
+  .plg{}
+  .plg .plh{display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px}
+  .plg .plh .sw{width:13px;height:13px;border-radius:3px;flex-shrink:0}
+  .plg .pli{font-size:11.5px;color:var(--slate);padding-left:21px;line-height:1.5}
+  .plg .pli .sh{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:middle}
+  /* theses */
+  .kpi-theses{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+  .kth{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 18px;display:flex;align-items:center;gap:14px}
+  .kth .kthn{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;white-space:nowrap}
+  .kth .kthn .ar{color:var(--amber)}
+  .kth .ktht{font-size:12.5px;color:var(--ink-text);line-height:1.4}
+  .kth.quant .kthn{color:var(--slate)}
+  .kth.qual .kthn{color:var(--navy)}
+  .kth.full{grid-column:1 / -1;background:var(--amber-glow);border-color:transparent}
+  .kth.full .ktht b{color:#A66A12}
+
+  /* ---- 3-component quality ---- */
+  .qcomp{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:10px}
+  .qspace{height:26px}
+  .qc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 22px;position:relative}
+  .qc .qn{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;width:28px;height:28px;
+    border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:600;margin-bottom:14px}
+  .qc:nth-child(1) .qn{background:var(--navy)}.qc:nth-child(2) .qn{background:var(--teal)}.qc:nth-child(3) .qn{background:var(--amber)}
+  .qc .qt{font-weight:600;font-size:16px;color:var(--ink-text);margin-bottom:7px}
+  .qc .qd{font-size:13px;color:var(--slate);line-height:1.45}
+  .qcover{display:grid;grid-template-columns:1fr 1.4fr;gap:24px;align-items:center;
+    background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 26px}
+  .qcover .qbig{font-family:'IBM Plex Mono',monospace;font-size:54px;font-weight:600;color:var(--good);line-height:1}
+  .qcover .qbig .arr{font-size:30px;color:var(--slate-light)}
+  .qcover .qbig .tgt{color:var(--amber)}
+  .qcover .qtext{font-size:14px;color:var(--ink-text);line-height:1.5}
+  .qcover .qtext b{color:var(--ink-text)}
+
+  /* ---- two col generic ---- */
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:46px;flex:1;align-content:start;margin-top:4px}
+  .col-h{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--slate);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+  .col-h .c{font-family:'Spectral',serif;font-size:28px;font-weight:700;color:var(--amber);text-transform:none;letter-spacing:0}
+  .chip-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .chip{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;
+    font-size:13.5px;font-weight:500;color:var(--ink-text);display:flex;align-items:center;gap:9px}
+  .chip .dot{width:6px;height:6px;border-radius:50%;background:var(--amber);flex-shrink:0}
+  .chip .cm{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--slate-light)}
+  .chan{display:flex;flex-direction:column;gap:10px}
+  .chan-item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .chan-item .t{font-weight:600;font-size:14.5px;color:var(--ink-text);display:flex;align-items:center;gap:10px}
+  .chan-item .t .n{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--amber);border:1px solid var(--amber);
+    border-radius:5px;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .chan-item .t .freq{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--slate-light);
+    text-transform:uppercase;letter-spacing:.05em}
+  .chan-item .d{font-size:12.5px;color:var(--slate);margin-top:6px;line-height:1.4;padding-left:30px}
+
+  /* ---- benchmark ---- */
+  .bench{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;flex:1;align-items:center}
+  .bars{display:flex;flex-direction:column;gap:13px}
+  .bar-row{display:grid;grid-template-columns:130px 1fr 50px;align-items:center;gap:14px}
+  .bar-row .nm{font-size:14px;font-weight:600;color:var(--ink-text);display:flex;align-items:center;gap:7px}
+  .bar-track{height:28px;background:#EAECF0;border-radius:7px;overflow:hidden;position:relative}
+  .bar-fill{height:100%;border-radius:7px;width:0;transition:width 1s cubic-bezier(.2,.7,.2,1)}
+  .bar-row .sc{font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600;color:var(--ink-text);text-align:right}
+  .bench-table{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card)}
+  .bench-table table{width:100%;border-collapse:collapse;font-size:11.5px}
+  .bench-table th{background:var(--ink);color:#fff;font-weight:500;padding:10px 8px;text-align:center;
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.03em}
+  .bench-table th:first-child{text-align:left;padding-left:14px}
+  .bench-table td{padding:9px 8px;text-align:center;border-top:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace;font-weight:500;color:var(--slate)}
+  .bench-table td:first-child{text-align:left;padding-left:14px;font-family:'Inter';font-weight:600;color:var(--ink-text)}
+  .bench-table tr.hl td{background:var(--amber-glow)}
+  .bench-table tr.hl td:last-child{color:var(--amber);font-weight:600}
+  .methnote{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  .methnote .m{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--slate);
+    background:var(--card);border:1px solid var(--line);border-radius:6px;padding:5px 9px}
+  .note{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--slate);margin-top:14px;line-height:1.5}
+
+  /* ---- problem -> solution ---- */
+  .ps-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 28px;width:100%}
+  .ps-center{flex:1;display:flex;flex-direction:column;justify-content:center}
+  .ps{display:grid;grid-template-columns:1fr 30px 1fr;align-items:center;gap:10px}
+  .ps .pp{background:#FBF0F0;border:1px solid #F0D8D8;border-radius:10px;padding:11px 14px}
+  .ps .pp .pl{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--bad);text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px}
+  .ps .pp .pv{font-size:12.5px;color:var(--ink-text);font-weight:500;line-height:1.3}
+  .ps .pa{text-align:center;color:var(--amber);font-size:16px;font-weight:700}
+  .ps .pn{background:var(--teal-soft);border:1px solid #C2E3DE;border-radius:10px;padding:11px 14px}
+  .ps .pn .pl{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--teal);text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px}
+  .ps .pn .pv{font-size:12.5px;color:var(--ink-text);font-weight:500;line-height:1.3}
+
+  /* ---- factors ---- */
+  .factors{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px}
+  .factor{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 18px}
+  .factor .fn{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#fff;
+    width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .factor:nth-child(1) .fn{background:var(--navy)}.factor:nth-child(2) .fn{background:var(--navy-soft)}
+  .factor:nth-child(3) .fn{background:var(--teal)}.factor:nth-child(4) .fn{background:var(--amber)}
+  .factor .ft{font-weight:600;font-size:14.5px;color:var(--ink-text);margin-bottom:7px}
+  .factor .fd{font-size:12px;color:var(--slate);line-height:1.45}
+  .override{background:var(--ink);color:#fff;border-radius:12px;padding:16px 22px;display:flex;align-items:center;gap:16px;margin-bottom:20px}
+  .override .ic{font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:600;color:var(--amber);flex-shrink:0}
+  .override .ot{font-size:13.5px;line-height:1.45}.override .ot b{color:var(--amber-bright)}
+  .two-status{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:auto}
+  .stat-list .sh{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);margin-bottom:12px}
+  .stat-list .si{display:flex;align-items:center;gap:11px;padding:7px 0;font-size:13px;color:var(--ink-text)}
+  .stat-list .si .sd{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+  .sd.done{background:var(--good)}.sd.prog{background:var(--amber)}.sd.go{background:var(--teal)}
+
+  /* ---- factory ---- */
+  .factory-nums{display:flex;gap:0;margin-bottom:30px;border-top:1px solid rgba(255,255,255,.12);
+    border-bottom:1px solid rgba(255,255,255,.12);padding:22px 0}
+  .fnum{flex:1;padding:0 28px}.fnum:not(:last-child){border-right:1px solid rgba(255,255,255,.1)}
+  .fnum .tr{font-family:'IBM Plex Mono',monospace;font-size:38px;font-weight:600;letter-spacing:-.02em;color:var(--on-dark)}
+  .fnum .tr .a{color:var(--amber)}.fnum .tr .g{color:var(--on-dark-mute);font-size:28px}
+  .fnum .ll{font-size:12.5px;color:var(--on-dark-mute);margin-top:7px}
+  .streams{display:grid;grid-template-columns:1fr 1fr;gap:22px;flex:1}
+  .stream{border-radius:16px;padding:24px 26px;position:relative}
+  .stream.deep{background:var(--ink-2);border:1px solid rgba(255,255,255,.1)}
+  .stream.quant{background:linear-gradient(135deg,#143A36,#10302C);border:1px solid rgba(19,138,126,.45)}
+  .stream .sh{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px}
+  .stream.deep .sh{color:var(--on-dark-mute)}.stream.quant .sh{color:#5FD9C9}
+  .stream .vol{font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;margin-bottom:16px;color:var(--on-dark)}
+  .stream.quant .vol{color:#7FE6D7}
+  .stream ul{list-style:none}
+  .stream li{font-size:13px;color:var(--on-dark);padding:6px 0 6px 20px;position:relative;line-height:1.4;opacity:.92}
+  .stream li::before{content:'';position:absolute;left:0;top:12px;width:7px;height:7px;border-radius:50%}
+  .stream.deep li::before{background:var(--on-dark-mute)}.stream.quant li::before{background:#5FD9C9}
+  .data-bar{margin-top:22px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;
+    padding:14px 22px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--on-dark-mute);
+    display:flex;gap:26px;flex-wrap:wrap;align-items:center}
+  .data-bar b{color:var(--amber);font-weight:600}.data-bar .sep{color:rgba(255,255,255,.2)}
+
+  /* ---- economics ---- */
+  .econ{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;flex:1;align-items:center}
+  .econ-bars{display:flex;flex-direction:column;gap:18px}
+  .ebar{}
+  .ebar .ebl{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px}
+  .ebar .ebn{font-size:14.5px;font-weight:600;color:var(--ink-text)}
+  .ebar .ebv{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--slate)}
+  .ebar .ebtrack{height:26px;background:#EAECF0;border-radius:7px;overflow:hidden}
+  .ebar .ebfill{height:100%;border-radius:7px;display:flex;align-items:center;padding-left:12px;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:#fff;font-weight:600}
+  .econ-insight{display:flex;flex-direction:column;gap:14px}
+  .ei{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px 20px}
+  .ei .eih{font-weight:600;font-size:14.5px;color:var(--ink-text);margin-bottom:7px;display:flex;align-items:center;gap:9px}
+  .ei .eih .eid{width:9px;height:9px;border-radius:50%}
+  .ei .eid.r{background:var(--bad)}.ei .eid.g{background:var(--good)}
+  .ei .eit{font-size:12.5px;color:var(--slate);line-height:1.45}
+
+  /* ---- pipeline ---- */
+  .pipe{display:flex;align-items:stretch;gap:0;margin-bottom:28px}
+  .pstep{flex:1;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px 14px;text-align:center}
+  .pstep .pi{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#fff;width:24px;height:24px;
+    border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 11px;font-weight:600}
+  .pstep:nth-child(1) .pi{background:var(--navy)}.pstep:nth-child(3) .pi{background:var(--navy-soft)}
+  .pstep:nth-child(5) .pi{background:var(--teal)}.pstep:nth-child(7) .pi{background:var(--amber)}.pstep:nth-child(9) .pi{background:var(--good)}
+  .pstep .pt{font-weight:600;font-size:13.5px;color:var(--ink-text);margin-bottom:5px}
+  .pstep .pd{font-size:11px;color:var(--slate);line-height:1.4}
+  .parrow{width:30px;display:flex;align-items:center;justify-content:center;color:var(--slate-light);font-size:17px;flex-shrink:0}
+  .principles{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:auto}
+  .principle{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:15px 17px;display:flex;gap:13px;align-items:flex-start}
+  .principle .pk{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--amber);font-weight:600;
+    border:1px solid var(--amber);border-radius:6px;padding:3px 7px;flex-shrink:0;margin-top:1px}
+  .principle .px{font-size:12.5px;color:var(--ink-text);line-height:1.45}
+
+  /* ---- knowledge ---- */
+  .kb{display:grid;grid-template-columns:1fr 1fr;gap:46px;flex:1;align-content:start}
+  .kb-stores{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+  .store{border-radius:13px;padding:18px;color:#fff}
+  .store:nth-child(1){background:var(--navy)}.store:nth-child(2){background:var(--navy-soft)}
+  .store:nth-child(3){background:var(--teal)}.store:nth-child(4){background:var(--good)}
+  .store .st{font-weight:600;font-size:14.5px;margin-bottom:6px}.store .sd2{font-size:12px;line-height:1.45;opacity:.9}
+  .app{display:flex;gap:13px;padding:13px 0;border-bottom:1px solid var(--line)}.app:last-child{border-bottom:none}
+  .app .an{font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;color:var(--amber);flex-shrink:0}
+  .app .at{font-weight:600;font-size:14px;color:var(--ink-text)}
+  .app .ad{font-size:12px;color:var(--slate);margin-top:3px;line-height:1.4}
+
+  /* ---- roadmap ---- */
+  .road{flex:1;display:flex;flex-direction:column;justify-content:center}
+  .road-track{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative}
+  .road-track::before{content:'';position:absolute;top:18px;left:6%;right:6%;height:2px;
+    background:linear-gradient(90deg,var(--good),var(--teal),var(--navy-soft),var(--amber))}
+  .rq{position:relative}
+  .rq .rnode{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#fff;margin:0 auto 18px;
+    position:relative;z-index:2;border:3px solid var(--paper)}
+  .rq:nth-child(1) .rnode{background:var(--good)}.rq:nth-child(2) .rnode{background:var(--teal)}
+  .rq:nth-child(3) .rnode{background:var(--navy-soft)}.rq:nth-child(4) .rnode{background:var(--amber)}
+  .rq .rlabel{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;text-align:center;color:var(--ink-text);margin-bottom:4px}
+  .rq .rsub{font-family:'IBM Plex Mono',monospace;font-size:10px;text-align:center;color:var(--slate-light);
+    margin-bottom:16px;text-transform:uppercase;letter-spacing:.06em}
+  .rq .rcard{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:12px 15px;
+    margin-bottom:9px;font-size:12px;color:var(--ink-text);line-height:1.4}
+  .rq .rcard .rt{display:flex;align-items:center;gap:8px}.rq .rcard .rstate{font-size:11px;flex-shrink:0}
+
+  /* ---- final kpi ---- */
+  .kpicols{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;flex:1;align-content:start}
+  .kcol .kh{border-radius:10px;padding:13px 16px;font-weight:600;font-size:14.5px;color:#fff;margin-bottom:13px;
+    display:flex;align-items:center;gap:10px}
+  .kcol:nth-child(1) .kh{background:var(--navy)}.kcol:nth-child(2) .kh{background:var(--navy-soft)}.kcol:nth-child(3) .kh{background:var(--teal)}
+  .kcol .kh .ki{font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:.7;margin-left:auto}
+  .kitem{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;
+    padding:12px 15px;margin-bottom:9px;font-size:13px;color:var(--on-dark);line-height:1.4;display:flex;align-items:center;gap:10px}
+  .kitem .kd{width:6px;height:6px;border-radius:50%;background:var(--amber);flex-shrink:0}
+  .closing{margin-top:24px;border-top:1px solid rgba(255,255,255,.12);padding-top:20px;font-family:'Spectral',serif;
+    font-style:italic;font-size:20px;color:var(--on-dark);line-height:1.4;max-width:64ch}
+  .closing b{color:var(--amber-bright);font-style:normal;font-weight:600}
+
+  /* nav */
+  .nav{position:fixed;bottom:24px;right:32px;z-index:50;display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace}
+  .nav .counter{font-size:12.5px;color:#fff;background:rgba(12,19,34,.85);backdrop-filter:blur(8px);
+    padding:8px 14px;border-radius:20px;letter-spacing:.05em;border:1px solid rgba(255,255,255,.12)}
+  .nav .counter .cur{color:var(--amber);font-weight:600}
+  .nav button{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.18);
+    background:rgba(12,19,34,.85);backdrop-filter:blur(8px);color:#fff;cursor:pointer;font-size:15px;
+    display:flex;align-items:center;justify-content:center;transition:.2s}
+  .nav button:hover{background:var(--amber);border-color:var(--amber);color:var(--ink)}
+  .progress{position:fixed;top:0;left:0;height:3px;background:var(--amber);z-index:60;transition:width .3s ease;width:0}
+
+  @media print{.nav,.progress{display:none}.deck{height:auto;overflow:visible}.slide{page-break-after:always;height:100vh;min-height:0}}
+  @media(max-width:1100px){
+    .slide{padding:40px 36px 52px}h1{font-size:48px}.hero h1{font-size:56px}h2{font-size:28px}
+    .result-grid,.kpiba,.qcomp,.factors,.kpicols,.econ,.bench,.cols,.kb,.ps-grid,.two-status,.principles{grid-template-columns:1fr;gap:18px}
+    .kpiba{grid-template-columns:1fr}.kmid{display:none}
+    .pipe{flex-wrap:wrap;gap:9px}.parrow{display:none}.pstep{flex:1 1 40%}
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="deck" id="deck">
+  <!-- 1 · HERO -->
+  <section class="slide dark hero">
+    <div class="grid-bg"></div>
+    <div class="lead">СТРАТЕГИЯ&nbsp;·&nbsp;2026–2028 <span class="cursor"></span></div>
+    <h1>Аналитическая<br>дирекция</h1>
+    <div class="tagline">От подтверждённой экспертизы — к масштабируемой ИИ-фабрике аналитики</div>
+    <div class="hero-metrics">
+      <div class="hm"><div class="v">30</div><div class="l">сотрудников<br>~20 аналитиков, ~10 редакторов</div></div>
+      <div class="hm"><div class="v">15<span class="ar">+</span></div><div class="l">внутренних клиентов<br>+ розница через приложение</div></div>
+      <div class="hm"><div class="v">150<span class="ar">→</span>500</div><div class="l">компаний в покрытии<br>цель — весь S&P 500</div></div>
+      <div class="hm"><div class="v" style="color:var(--good)">0</div><div class="l">убыточных стратегий<br>на целевом горизонте 2025</div></div>
+    </div>
+    <div class="hero-foot"><span>Для обсуждения с руководством блока</span><span>ИЮНЬ 2026</span></div>
+  </section>
+
+  <!-- 2 · ДОХОДНОСТЬ И СТАБИЛЬНОСТЬ -->
+  <section class="slide light">
+    <div class="eyebrow"><span class="num">01</span><span class="tick"></span>РЕЗУЛЬТАТ · ДОКАЗАННАЯ ЦЕННОСТЬ</div>
+    <div class="head-row"><h2>Доходность и стабильность стратегий · 2025</h2>
+      <div class="sub">Реальные продукты автоследования — отсортированы по доходности после комиссий. Все в плюсе, кроме парных идей</div></div>
+    <div class="s2grid">
+
+      <!-- БЛОК 1: стратегии -->
+      <div class="s2col stratpanel">
+        <div class="c2top"><div class="c2t">Доходность стратегий<br>автоследования</div><span class="vbadge req">⚠ верифик.</span></div>
+        <div class="c2mini">после комиссий <b>12.2%</b> · до <span class="g">15.6%</span> · vs рынок <span class="g">+6.7%</span></div>
+        <div class="sp-legend">
+          <div class="lg"><span class="sw" style="background:var(--navy)"></span>После комиссий — результат клиента</div>
+          <div class="lg"><span class="sw" style="background:var(--amber)"></span>Комиссия → до комиссий</div>
+        </div>
+        <div class="schart" id="schart"></div>
+        <div class="saxis"><div></div><div class="saxislabels" id="saxis"></div></div>
+      </div>
+
+      <!-- БЛОК 2: топ-квартиль -->
+      <div class="s2col">
+        <div class="c2top"><div class="c2t">Топ-квартиль<br>vs продукты аналитики</div><span class="vbadge ok">✓ верифиц.</span></div>
+        <div class="c2sub">Средняя доходность ДИА против ПИФ, автоследования (АС) и доверит. управления (ДУ) — №1 в обеих категориях</div>
+        <div class="tq" id="tq"></div>
+      </div>
+
+      <!-- БЛОК 3: рост активов -->
+      <div class="s2col">
+        <div class="c2top"><div class="c2t">Рост активов<br>фабрик · 2025</div><span class="vbadge ok">✓ верифиц.</span></div>
+        <div class="share-row">
+          <div class="share"><div class="shv ph">хх%</div><div class="shl">доля ДИА<br>в фабрике СК</div></div>
+          <div class="share"><div class="shv ph">хх%</div><div class="shl">доля ДИА<br>в фабрике АС</div></div>
+        </div>
+        <div class="growth-legend">
+          <div class="gl"><span class="sw" style="background:var(--navy)"></span>СК <span class="gln" style="color:var(--good)">+57%</span></div>
+          <div class="gl"><span class="sw" style="background:var(--amber)"></span>АС <span class="gln" style="color:var(--slate)">−5%</span></div>
+        </div>
+        <div class="growth-chart"><svg id="growthsvg" viewBox="0 0 300 150" style="width:100%" preserveAspectRatio="none"></svg></div>
+        <div class="note" style="margin-top:6px">₽млрд · СК растёт, АС стабильна ~1.5–2.0</div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    (function(){
+      // ---- stacked strategies chart ----
+      const data=[
+        {n:"Фавориты фикс",   after:29.6, fee:5.1},
+        {n:"Фавориты флоут.",  after:21.9, fee:1.2},
+        {n:"Формула дохода",   after:15.2, fee:5.8},
+        {n:"ТВ Лонг",          after:9.1,  fee:3.9},
+        {n:"ТВ Нейтрал.",      after:9.0,  fee:2.5},
+        {n:"ТВ Рыночный",      after:8.1,  fee:0.5},
+        {n:"Дивкорзина",       after:5.3,  fee:3.6},
+        {n:"Парные идеи",      after:-0.4, fee:4.5},
+      ];
+      const min=-2,max=37,span=max-min;
+      const pct=v=>((v-min)/span)*100;
+      const zeroX=pct(0);
+      const chart=document.getElementById('schart');
+      if(chart){
+        data.forEach(d=>{
+          const before=Math.round((d.after+d.fee)*10)/10;
+          const grp=document.createElement('div'); grp.className='sgrp';
+          const aNeg=d.after<0;
+          const aL=Math.min(pct(0),pct(d.after)), aR=Math.max(pct(0),pct(d.after));
+          const aColor=aNeg?'#D45B5B':'var(--navy)';
+          const fL=pct(d.after), fR=pct(before);
+          const aWide=(aR-aL)>13;
+          const aValHtml = aNeg
+            ? '<div class="sval negout" style="right:calc('+(100-aL)+'% + 4px)">'+d.after+'%</div>'
+            : (aWide
+                ? '<div class="sval inwhite" style="left:'+aL+'%;width:'+(aR-aL)+'%;text-align:right">'+d.after+'%</div>'
+                : '<div class="sval" style="left:calc('+aR+'% + 4px);color:var(--navy)">'+d.after+'%</div>');
+          grp.innerHTML=
+            '<div class="sgname">'+d.n+'</div>'+
+            '<div class="sbarwrap">'+
+              '<div class="sbtrack"></div><div class="szero" style="left:'+zeroX+'%"></div>'+
+              '<div class="sseg after" style="left:'+aL+'%;width:'+(aR-aL)+'%;background:'+aColor+'"></div>'+
+              '<div class="sseg fee" style="left:'+fL+'%;width:'+(fR-fL)+'%"></div>'+
+              aValHtml+
+            '</div>';
+          chart.appendChild(grp);
+        });
+        // строка-бенчмарк: рынок акций за год
+        const bm=document.createElement('div'); bm.className='sgrp bench-row';
+        const bmEnd=pct(2.5), bm0=pct(0);
+        bm.innerHTML=
+          '<div class="sgname" style="color:var(--slate)">Рынок акций</div>'+
+          '<div class="sbarwrap">'+
+            '<div class="sbtrack"></div><div class="szero" style="left:'+zeroX+'%"></div>'+
+            '<div class="sseg after" style="left:'+bm0+'%;width:'+(bmEnd-bm0)+'%;background:#AEB6C7;border-radius:4px"></div>'+
+            '<div class="sval" style="left:calc('+bmEnd+'% + 4px);color:var(--slate)">2.5%</div>'+
+          '</div>';
+        chart.appendChild(bm);
+        const axis=document.getElementById('saxis');
+        [0,10,20,30].forEach(t=>{const s=document.createElement('span');s.style.left=pct(t)+'%';s.textContent=t+'%';axis.appendChild(s)});
+      }
+
+      // ---- top-quartile mini chart ----
+      const tq=document.getElementById('tq');
+      if(tq){
+        const tqmin=-2,tqmax=19,tqspan=tqmax-tqmin;
+        const tp=v=>((v-tqmin)/tqspan)*100;
+        const tz=tp(0);
+        const sections=[
+          {title:'Акции РФ', rows:[{n:'ДИА',v:13.2,dia:true},{n:'ПИФ',v:4.4},{n:'ДУ',v:3.2},{n:'АС',v:-1.7}]},
+          {title:'Облигации РФ', rows:[{n:'ДИА',v:17.8,dia:true},{n:'ДУ',v:17.7},{n:'АС',v:16.6},{n:'ПИФ',v:11.4}]},
+        ];
+        sections.forEach(sec=>{
+          const h=document.createElement('div'); h.className='tq-sect'; h.textContent=sec.title; tq.appendChild(h);
+          sec.rows.forEach(r=>{
+            const neg=r.v<0;
+            const bL=Math.min(tp(0),tp(r.v)), bR=Math.max(tp(0),tp(r.v));
+            const color=r.dia?'var(--navy)':(neg?'#E2A8A8':'#AEB6C7');
+            const row=document.createElement('div'); row.className='tqrow'+(r.dia?' dia':'');
+            row.innerHTML=
+              '<div class="tqn">'+r.n+'</div>'+
+              '<div class="tqbarwrap"><div class="tqtrack"></div><div class="tqz" style="left:'+tz+'%"></div>'+
+                '<div class="tqfill" style="left:'+bL+'%;width:'+(bR-bL)+'%;background:'+color+'"></div></div>'+
+              '<div class="tqv'+(neg?' neg':'')+'">'+r.v+'%</div>';
+            tq.appendChild(row);
+          });
+        });
+      }
+
+      // ---- asset growth two-line AREA chart ----
+      const svg=document.getElementById('growthsvg');
+      if(svg){
+        const sk=[4065,4080,4140,4160,4390,4520,4680,4860,5240,5980,6130,6120,6190,6360,6396];
+        const as=[1669,1715,1680,1698,1670,1619,1503,1485,1989,1473,1459,1473,1554,1560,1591];
+        const W=300,H=150,padL=4,padR=4,padT=12,padB=16;
+        const yMax=6700,yMin=1200; // поджатая шкала — меньше пустого места
+        const x=i=>padL+(i/(sk.length-1))*(W-padL-padR);
+        const y=v=>padT+(1-(v-yMin)/(yMax-yMin))*(H-padT-padB);
+        const base=H-padB;
+        const line=arr=>arr.map((v,i)=>x(i)+','+y(v)).join(' ');
+        const area=arr=>'M'+x(0)+','+base+' L'+arr.map((v,i)=>x(i)+','+y(v)).join(' L')+' L'+x(arr.length-1)+','+base+' Z';
+        svg.innerHTML=
+          '<path d="'+area(sk)+'" fill="#1B2A52" opacity="0.10"/>'+
+          '<path d="'+area(as)+'" fill="#D9952A" opacity="0.14"/>'+
+          '<polyline points="'+line(sk)+'" fill="none" stroke="#1B2A52" stroke-width="2.4" stroke-linejoin="round"/>'+
+          '<polyline points="'+line(as)+'" fill="none" stroke="#D9952A" stroke-width="2.4" stroke-linejoin="round"/>'+
+          '<circle cx="'+x(sk.length-1)+'" cy="'+y(6396)+'" r="3.5" fill="#1B2A52"/>'+
+          '<circle cx="'+x(as.length-1)+'" cy="'+y(1591)+'" r="3.5" fill="#D9952A"/>'+
+          '<text x="'+(x(sk.length-1))+'" y="'+(y(6396)-6)+'" text-anchor="end" font-family="IBM Plex Mono" font-size="10" font-weight="600" fill="#1B2A52">6 396</text>'+
+          '<text x="'+(x(as.length-1))+'" y="'+(y(1591)+15)+'" text-anchor="end" font-family="IBM Plex Mono" font-size="10" font-weight="600" fill="#A66A12">1 591</text>'+
+          '<text x="4" y="'+(H-3)+'" font-family="IBM Plex Mono" font-size="8.5" fill="#8A93A8">янв \u201925</text>'+
+          '<text x="'+(W-4)+'" y="'+(H-3)+'" text-anchor="end" font-family="IBM Plex Mono" font-size="8.5" fill="#8A93A8">дек \u201925</text>';
+      }
+    })();
+  </script>
+
+  <!-- 3 · KPI БЫЛО → СТАЛО (PIE) -->
+  <section class="slide light">
+    <div class="eyebrow"><span class="num">02</span><span class="tick"></span>СИСТЕМА МОТИВАЦИИ</div>
+    <div class="head-row"><h2>KPI аналитиков: сдвиг от объёма к качеству</h2>
+      <div class="sub">Пересмотр весов смещает фокус с «сколько произвели» на «насколько точно попали в результат»</div></div>
+
+    <div class="pies">
+      <div class="piecard">
+        <div class="ptag">До июня 2026</div>
+        <div class="piewrap"><svg id="pieBefore" viewBox="0 0 100 100"></svg>
+          <div class="pcenter"><div class="pc-q" style="color:var(--navy)">50</div><div class="pc-l">инвестидеи</div></div>
+        </div>
+      </div>
+
+      <div class="pleg">
+        <div class="parrow-top">→</div>
+        <div class="plg">
+          <div class="plh" style="color:var(--navy)"><span class="sw" style="background:var(--navy)"></span>Инвестидеи</div>
+          <div class="pli">
+            <span class="sh" style="background:#1B2A52"></span>Количество идей<br>
+            <span class="sh" style="background:#33508F"></span>Точность попадания<br>
+            <span class="sh" style="background:#5E7CBA"></span>Против рынка (альфа)
+          </div>
+        </div>
+        <div class="plg">
+          <div class="plh" style="color:#A66A12"><span class="sw" style="background:var(--amber)"></span>Контент</div>
+          <div class="pli"><span class="sh" style="background:#D9952A"></span>Количество отчётов</div>
+        </div>
+        <div class="plg">
+          <div class="plh" style="color:var(--teal)"><span class="sw" style="background:var(--teal)"></span>CSI</div>
+          <div class="pli"><span class="sh" style="background:#138A7E"></span>Удовлетворённость клиентов</div>
+        </div>
+      </div>
+
+      <div class="piecard">
+        <div class="ptag">После июня 2026</div>
+        <div class="piewrap"><svg id="pieAfter" viewBox="0 0 100 100"></svg>
+          <div class="pcenter"><div class="pc-q" style="color:var(--navy)">60</div><div class="pc-l">инвестидеи</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kpi-theses">
+      <div class="kth quant"><div class="kthn">50 <span class="ar">→</span> 40</div>
+        <div class="ktht"><b>Количественные</b> (количество идей + контент): доля снижается</div></div>
+      <div class="kth qual"><div class="kthn">50 <span class="ar">→</span> 60</div>
+        <div class="ktht"><b>Качественные</b> (точность + альфа + CSI): доля растёт</div></div>
+      <div class="kth full"><div class="kthn" style="color:#A66A12">CSI</div>
+        <div class="ktht"><b>Ключевое изменение:</b> CSI считаем через внутренние системы, а не через собственный сбор обратной связи — метрика становится объективной и автоматической</div></div>
+    </div>
+  </section>
+
+  <script>
+    (function(){
+      const comps=[
+        {col:'#1B2A52'},{col:'#33508F'},{col:'#5E7CBA'}, // инвестидеи
+        {col:'#D9952A'}, // контент
+        {col:'#138A7E'}, // CSI
+      ];
+      const before=[20,15,15,30,20];
+      const after =[20,20,20,20,20];
+      function drawPie(id,vals){
+        const svg=document.getElementById(id); if(!svg) return;
+        const cx=50,cy=50,r=44,inner=26;
+        let a0=0,out=''; const total=vals.reduce((s,v)=>s+v,0);
+        vals.forEach((v,i)=>{
+          const frac=v/total,a1=a0+frac*2*Math.PI;
+          const x0=cx+r*Math.cos(a0),y0=cy+r*Math.sin(a0);
+          const x1=cx+r*Math.cos(a1),y1=cy+r*Math.sin(a1);
+          const xi1=cx+inner*Math.cos(a1),yi1=cy+inner*Math.sin(a1);
+          const xi0=cx+inner*Math.cos(a0),yi0=cy+inner*Math.sin(a0);
+          const large=frac>0.5?1:0;
+          out+='<path d="M'+x0+','+y0+' A'+r+','+r+' 0 '+large+' 1 '+x1+','+y1+
+               ' L'+xi1+','+yi1+' A'+inner+','+inner+' 0 '+large+' 0 '+xi0+','+yi0+
+               ' Z" fill="'+comps[i].col+'"/>';
+          const am=(a0+a1)/2,rm=(r+inner)/2;
+          const lx=cx+rm*Math.cos(am),ly=cy+rm*Math.sin(am);
+          out+='<text x="'+lx+'" y="'+ly+'" transform="rotate(90 '+lx+' '+ly+')" text-anchor="middle" dominant-baseline="central" font-family="IBM Plex Mono" font-size="7.5" font-weight="600" fill="#fff">'+v+'</text>';
+          a0=a1;
+        });
+        svg.innerHTML=out;
+      }
+      drawPie('pieBefore',before);
+      drawPie('pieAfter',after);
+    })();
+  </script>
+
+  <!-- 4 · СИСТЕМА КАЧЕСТВА ПРОДУКТОВ -->
+  <section class="slide light">
+    <div class="eyebrow"><span class="num">03</span><span class="tick"></span>ИЗМЕРИМОЕ КАЧЕСТВО</div>
+    <div class="head-row"><h2>Рейтинг качества продуктов: три компонента</h2>
+      <div class="sub">Каждый продукт оценивается по объективной системе — качество измеряется, а не декларируется</div></div>
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
+    <div class="qcomp">
+      <div class="qc"><div class="qn">1</div><div class="qt">Соответствие риск-профилю</div>
+        <div class="qd">Фактический риск продукта совпадает с заявленным для клиента уровнем — нет скрытого превышения</div>
+        <div class="qd" style="margin-top:10px;color:var(--navy);font-weight:500">Как мерим: сравнение реализованной волатильности с риск-категорией продукта</div></div>
+      <div class="qc"><div class="qn">2</div><div class="qt">Соответствие обещанной доходности</div>
+        <div class="qd">Реализованная доходность сверяется с тем, что было обещано при запуске идеи или продукта</div>
+        <div class="qd" style="margin-top:10px;color:var(--teal);font-weight:500">Как мерим: факт vs целевая доходность на горизонте идеи</div></div>
+      <div class="qc"><div class="qn">3</div><div class="qt">Инвестиционная ценность</div>
+        <div class="qd">Коэффициент Шарпа (доходность с поправкой на риск) — оценка качества результата, а не только его величины</div>
+        <div class="qd" style="margin-top:10px;color:#A66A12;font-weight:500">Как мерим: Sharpe ratio относительно бенчмарка и аналогов</div></div>
+    </div>
+    <div class="qspace"></div>
+    <div class="qcover">
+      <div class="qbig">97%<span class="arr"> → </span><span class="tgt">100%</span></div>
+      <div class="qtext">сегодня <b>97% продуктов</b> покрыты рейтингом качества. Цель 2026 — <b>полное покрытие через автоматизацию</b>: оценка качества встроена в процесс, а не делается вручную постфактум.
+        <div style="margin-top:10px"><span class="vbadge ok">✓ верифицировано</span></div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- 5 · ВНУТРЕННИЕ КЛИЕНТЫ -->
+  <section class="slide light">
+    <div class="eyebrow"><span class="num">04</span><span class="tick"></span>ОПЕРАЦИОННЫЙ КОНТУР</div>
+    <div class="head-row"><h2>Внутренние клиенты и каналы доставки</h2>
+      <div class="sub">15+ подразделений-потребителей и розничная аудитория — ежедневный операционный ритм</div></div>
+    <div class="cols">
+      <div>
+        <div class="col-h"><span class="c">15+</span> внутренних клиентов</div>
+        <div class="chip-grid">
+          <div class="chip"><span class="dot"></span>Финансовые советники</div>
+          <div class="chip"><span class="dot"></span>Управление активами</div>
+          <div class="chip"><span class="dot"></span>Продуктовый блок</div>
+          <div class="chip"><span class="dot"></span>Риск-менеджмент</div>
+          <div class="chip"><span class="dot"></span>Трейдинг и казначейство</div>
+          <div class="chip"><span class="dot"></span>Розничный бизнес</div>
+          <div class="chip"><span class="dot"></span>Маркетинг и PR</div>
+          <div class="chip"><span class="dot"></span>Топ-менеджмент</div>
+        </div>
+        <div class="note">Аудитория — розничные инвесторы: приоритет простоты и ясности над глубиной и сложностью</div>
+      </div>
+      <div>
+        <div class="col-h">Каналы и ритм доставки</div>
+        <div class="chan">
+          <div class="chan-item"><div class="t"><span class="n">1</span>HTML-рассылки<span class="freq">ежедневно</span></div>
+            <div class="d">Дайджесты и тематические обзоры по подписке подразделений</div></div>
+          <div class="chan-item"><div class="t"><span class="n">2</span>Проактивные сообщения<span class="freq">в реальном времени</span></div>
+            <div class="d">Чаты подразделений, оперативные комментарии на события</div></div>
+          <div class="chan-item"><div class="t"><span class="n">3</span>Приложение БКС<span class="freq">постоянно</span></div>
+            <div class="d">Контент для розничных клиентов напрямую в продукте</div></div>
+          <div class="chan-item"><div class="t"><span class="n">4</span>Через советников<span class="freq">по запросу</span></div>
+            <div class="d">Адаптированный контент для конечных клиентов советника</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · БЕНЧМАРК -->
+  <section class="slide light">
+    <div class="eyebrow"><span class="num">05</span><span class="tick"></span>ПОЗИЦИОНИРОВАНИЕ</div>
+    <div class="head-row"><h2>Конкурентный бенчмарк восприятия</h2>
+      <div class="sub">Независимая оценка восприятия аналитики розничными инвесторами — консенсус трёх AI-систем</div></div>
+    <div class="bench">
+      <div class="bars" id="bars">
+        <div class="bar-row"><div class="nm">Т-Инвестиции 🥇</div><div class="bar-track"><div class="bar-fill" data-w="92" style="background:var(--navy)"></div></div><div class="sc">4.61</div></div>
+        <div class="bar-row"><div class="nm">БКС 🥈</div><div class="bar-track"><div class="bar-fill" data-w="85" style="background:var(--amber)"></div></div><div class="sc">4.28</div></div>
+        <div class="bar-row"><div class="nm">Сбер</div><div class="bar-track"><div class="bar-fill" data-w="76" style="background:#9AA4BC"></div></div><div class="sc">3.80</div></div>
+        <div class="bar-row"><div class="nm">Альфа</div><div class="bar-track"><div class="bar-fill" data-w="72" style="background:#9AA4BC"></div></div><div class="sc">3.60</div></div>
+        <div class="bar-row"><div class="nm">ВТБ</div><div class="bar-track"><div class="bar-fill" data-w="64" style="background:#9AA4BC"></div></div><div class="sc">3.20</div></div>
+        <div class="methnote">
+          <span class="m">5-балльная шкала: Strong=5 · Avg=3 · Weak=1</span>
+          <span class="m">6 параметров оценки</span>
+          <span class="m">Claude · ChatGPT · DeepSeek</span>
+        </div>
+      </div>
+      <div>
+        <div class="bench-table"><table>
+          <tr><th>Брокер</th><th>Подача</th><th>Трек</th><th>Глубина</th><th>Выход</th><th>Доступ</th></tr>
+          <tr><td>Т-Инвестиции</td><td>5</td><td>5</td><td>4</td><td>5</td><td>5</td></tr>
+          <tr class="hl"><td>БКС</td><td>4</td><td>4</td><td>5</td><td>4</td><td>4</td></tr>
+          <tr><td>Сбер</td><td>4</td><td>4</td><td>4</td><td>3</td><td>4</td></tr>
+          <tr><td>Альфа</td><td>3</td><td>3</td><td>4</td><td>4</td><td>4</td></tr>
+          <tr><td>ВТБ</td><td>3</td><td>3</td><td>3</td><td>3</td><td>4</td></tr>
+        </table></div>
+        <div class="note">Отрыв от лидера — в простоте подачи и вовлечённости сообщества.<br><b style="color:var(--ink-text)">По глубине аналитики БКС — №1 в выборке (5/5).</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · ПРОБЛЕМЫ → РЕШЕНИЯ -->
+  <section class="slide light">
+    <div class="eyebrow"><span class="num">06</span><span class="tick"></span>ОТ ДИАГНОЗА К ДЕЙСТВИЮ</div>
+    <div class="head-row"><h2>Что отделяет нас от лидера — и чем закрываем</h2>
+      <div class="sub">Каждый разрыв в восприятии связан с конкретной инициативой, уже в работе</div></div>
+    <div class="ps-center">
+    <div class="ps-grid">
+      <div class="ps">
+        <div class="pp"><div class="pl">Проблема</div><div class="pv">Подача сложнее, чем у Т-Инвестиций</div></div>
+        <div class="pa">→</div>
+        <div class="pn"><div class="pl">Решение</div><div class="pv">Редизайн под розницу: двухслойная карточка</div></div>
+      </div>
+      <div class="ps">
+        <div class="pp"><div class="pl">Проблема</div><div class="pv">Слабая вовлечённость сообщества</div></div>
+        <div class="pa">→</div>
+        <div class="pn"><div class="pl">Решение</div><div class="pv">Каналы в приложении, проактивные форматы</div></div>
+      </div>
+      <div class="ps">
+        <div class="pp"><div class="pl">Проблема</div><div class="pv">Трек-рекорд не на виду у клиента</div></div>
+        <div class="pa">→</div>
+        <div class="pn"><div class="pl">Решение</div><div class="pv">Публичный рейтинг качества, история идей</div></div>
+      </div>
+      <div class="ps">
+        <div class="pp"><div class="pl">Проблема</div><div class="pv">Дисциплина выхода из позиций</div></div>
+        <div class="pa">→</div>
+        <div class="pn"><div class="pl">Решение</div><div class="pv">Сигналы рейтинга + явные триггеры выхода</div></div>
+      </div>
+      <div class="ps">
+        <div class="pp"><div class="pl">Проблема</div><div class="pv">Ограничения доступа к контенту</div></div>
+        <div class="pa">→</div>
+        <div class="pn"><div class="pl">Решение</div><div class="pv">Расширение покрытия → шире доступ</div></div>
+      </div>
+      <div class="ps">
+        <div class="pp"><div class="pl">Проблема</div><div class="pv">Перегруз объёмом контента</div></div>
+        <div class="pa">→</div>
+        <div class="pn"><div class="pl">Решение</div><div class="pv">Короткая карточка + детали по запросу</div></div>
+      </div>
+    </div>
+    <div class="insight" style="margin-top:0">Все шесть инициатив <b>уже в работе</b> — стратегия закрывает не абстрактные «зоны роста», а конкретные разрывы восприятия, выявленные в бенчмарке.</div>
+  </section>
+
+  <!-- 8 · БКС РЕЙТИНГ -->
+  <section class="slide light">
+    <div class="eyebrow"><span class="num">07</span><span class="tick"></span>КВАНТОВЫЙ ПРОДУКТ</div>
+    <div class="head-row"><h2>БКС Рейтинг — четырёхфакторная модель</h2>
+      <div class="sub">Систематическая оценка акций — двигатель квантового потока фабрики аналитики</div></div>
+    <div class="factors">
+      <div class="factor"><div class="fn">1</div><div class="ft">Взгляд аналитика</div><div class="fd">Целевая цена и рекомендация эксперта</div></div>
+      <div class="factor"><div class="fn">2</div><div class="ft">Качество бизнеса</div><div class="fd">Фундаментальные показатели компании</div></div>
+      <div class="factor"><div class="fn">3</div><div class="ft">Сравнительная оценка</div><div class="fd">Мультипликаторы vs сектор и история</div></div>
+      <div class="factor"><div class="fn">4</div><div class="ft">Ценовая динамика</div><div class="fd">Моментум и технические сигналы</div></div>
+    </div>
+    <div class="override"><div class="ic">±15%</div>
+      <div class="ot">Основа — <b>консенсус (Bloomberg)</b>. Аналитик сохраняет право скорректировать целевую цену в коридоре ±15% — экспертное суждение поверх систематики, а не вместо неё.</div></div>
+    <div class="two-status">
+      <div class="stat-list"><div class="sh">Статус внедрения</div>
+        <div class="si"><span class="sd done"></span>Модель разработана и внедрена</div>
+        <div class="si"><span class="sd prog"></span>Бэктест исторической доходности — в процессе (Миша)</div>
+        <div class="si"><span class="sd done"></span>Покрытие рейтингом качества — 97%</div>
+        <div class="si"><span class="sd prog"></span>Цель 2026 — 100% через автоматизацию</div></div>
+      <div class="stat-list"><div class="sh">Роль в фабрике</div>
+        <div class="si"><span class="sd go"></span>Сигнал → ИИ-контент → публикация</div>
+        <div class="si"><span class="sd go"></span>Аналитик верифицирует, а не генерирует сигнал</div>
+        <div class="si"><span class="sd go"></span>~80 бумаг на аналитика без роста команды</div>
+        <div class="si"><span class="sd go"></span>Редактор контролирует финальный контент</div></div>
+    </div>
+  </section>
+
+  <!-- 9 · AI ФАБРИКА (dark) -->
+  <section class="slide dark">
+    <div class="eyebrow"><span class="num">08</span><span class="tick"></span>МАСШТАБ · АРХИТЕКТУРА</div>
+    <div class="head-row"><h2>Фабрика аналитики US Equities</h2>
+      <div class="sub">Кратный рост покрытия без расширения команды — через разделение на два потока</div></div>
+    <div class="factory-nums">
+      <div class="fnum"><div class="tr">150<span class="g"> → </span><span class="a">500</span></div><div class="ll">компаний в покрытии — весь S&P 500</div></div>
+      <div class="fnum"><div class="tr">30<span class="g"> → </span><span class="a">100</span></div><div class="ll">бумаг на одного аналитика</div></div>
+      <div class="fnum"><div class="tr">5<span class="g"> → </span>5</div><div class="ll">аналитиков — без дополнительного найма</div></div>
+    </div>
+    <div class="streams">
+      <div class="stream deep"><div class="sh">Глубокое покрытие · ~20% бумаг</div><div class="vol">~20 бумаг / аналитик</div>
+        <ul><li>Полный фундаментальный анализ</li><li>Аналитик — автор инвестиционной идеи</li><li>Высокая конвикция (степень уверенности)</li></ul></div>
+      <div class="stream quant"><div class="sh">Квантовый поток · ИИ · ~80% бумаг</div><div class="vol">~80 бумаг / аналитик</div>
+        <ul><li>БКС Рейтинг формирует сигнал из консенсуса</li><li>ИИ генерирует контент вокруг факт-слоя</li><li>Аналитик верифицирует, коридор ±15%</li></ul></div>
+    </div>
+    <div class="data-bar"><span>Данные: <b>Bloomberg</b> первичный + <b>Finnhub</b> резерв</span><span class="sep">|</span>
+      <span>Генерация: <b>Claude API</b></span><span class="sep">|</span><span>Контроль: <b>аналитик + редактор</b></span></div>
+  </section>
+
+  <!-- 10 · ЭКОНОМИКА ФАБРИКИ -->
+  <section class="slide light">
+    <div class="eyebrow"><span class="num">09</span><span class="tick"></span>ЭКОНОМИКА МАСШТАБА</div>
+    <div class="head-row"><h2>Где деньги: структура затрат фабрики</h2>
+      <div class="sub">Главное ограничение — не стоимость генерации, а лицензия на данные. Это меняет логику масштабирования</div></div>
+    <div class="econ">
+      <div class="econ-bars">
+        <div class="ebar"><div class="ebl"><span class="ebn">Лицензия на данные (Bloomberg)</span><span class="ebv">доминирующая статья</span></div>
+          <div class="ebtrack"><div class="ebfill" data-w="100" style="background:var(--navy)">главный драйвер затрат</div></div></div>
+        <div class="ebar"><div class="ebl"><span class="ebn">Генерация текста (Claude API)</span><span class="ebv">относительно дёшево</span></div>
+          <div class="ebtrack"><div class="ebfill" data-w="22" style="background:var(--amber)">низкая доля</div></div></div>
+        <div class="ebar"><div class="ebl"><span class="ebn">Человеческий контроль (ред. + аналитик)</span><span class="ebv">фиксированный ресурс</span></div>
+          <div class="ebtrack"><div class="ebfill" data-w="40" style="background:var(--teal)">без роста команды</div></div></div>
+        <div class="note"><span class="vbadge req">⚠ требует верификации</span>&nbsp;&nbsp;пропорции иллюстративные — финальные цифры по лицензии уточняются</div>
+      </div>
+      <div class="econ-insight">
+        <div class="ei"><div class="eih"><span class="eid r"></span>Драйвер затрат — данные</div>
+          <div class="eit">Лицензия на перераспределение данных Bloomberg — основная статья. Масштаб покрытия упирается в неё, а не в стоимость ИИ.</div></div>
+        <div class="ei"><div class="eih"><span class="eid g"></span>ИИ-генерация почти бесплатна</div>
+          <div class="eit">Claude API дёшев за счёт batch-режима (пакетная обработка) и prompt caching (повторное использование контекста). Удвоение объёма контента не удваивает затраты.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 · КОНТРОЛЬ КАЧЕСТВА -->
+  <section class="slide light">
+    <div class="eyebrow"><span class="num">10</span><span class="tick"></span>КАЧЕСТВО · ОТВЕТСТВЕННОСТЬ</div>
+    <div class="head-row"><h2>Контроль качества и защита от ошибок ИИ</h2>
+      <div class="sub">Клиент не видит разницы между потоками — ДИА несёт единый стандарт ответственности за оба</div></div>
+    <div class="pipe">
+      <div class="pstep"><div class="pi">1</div><div class="pt">Данные</div><div class="pd">Bloomberg — верифицированный факт-слой</div></div>
+      <div class="parrow">→</div>
+      <div class="pstep"><div class="pi">2</div><div class="pt">ИИ-контент</div><div class="pd">Claude формирует текст вокруг фактов</div></div>
+      <div class="parrow">→</div>
+      <div class="pstep"><div class="pi">3</div><div class="pt">Аналитик</div><div class="pd">Верификация сигнала, коридор ±15%</div></div>
+      <div class="parrow">→</div>
+      <div class="pstep"><div class="pi">4</div><div class="pt">Редактор</div><div class="pd">Качество, тон, стиль, фактура</div></div>
+      <div class="parrow">→</div>
+      <div class="pstep"><div class="pi">5</div><div class="pt">Публикация</div><div class="pd">Единый стандарт для всех потоков</div></div>
+    </div>
+    <div class="principles">
+      <div class="principle"><span class="pk">F/N</span><div class="px"><b>Факты и нарратив разделены:</b> числа берутся только из верифицированного источника, ИИ формирует лишь текст вокруг готовых фактов — модель не придумывает цифры</div></div>
+      <div class="principle"><span class="pk">A/H</span><div class="px"><b>Защита от галлюцинаций:</b> описания компаний из проверенного словаря, мультипликаторы — из данных. Модель не генерирует факты, которые может выдумать</div></div>
+      <div class="principle"><span class="pk">L2</span><div class="px"><b>Обратная связь второго уровня:</b> редактор тегирует правки → Claude предлагает улучшение промптов → методолог утверждает. Система учится на ошибках</div></div>
+      <div class="principle"><span class="pk">D1</span><div class="px"><b>Измерение с первого дня:</b> точность идей, доля правок, время на проверку фиксируются сразу — ретроспективно KPI-базу не восстановить</div></div>
+    </div>
+  </section>
+
+  <!-- 12 · БАЗА ЗНАНИЙ -->
+  <section class="slide light">
+    <div class="eyebrow"><span class="num">11</span><span class="tick"></span>ИНФРАСТРУКТУРА ДАННЫХ</div>
+    <div class="head-row"><h2>База знаний и агентные системы</h2>
+      <div class="sub">Четыре хранилища данных — фундамент для прикладных уровней на горизонте 2026–2027</div></div>
+    <div class="kb">
+      <div>
+        <div class="col-h">Четыре хранилища</div>
+        <div class="kb-stores">
+          <div class="store"><div class="st">Правила и промпты</div><div class="sd2">Стандарты, шаблоны, методология ДИА</div></div>
+          <div class="store"><div class="st">Корпус контента</div><div class="sd2">Архив отчётов, идей, комментариев</div></div>
+          <div class="store"><div class="st">Телеметрия процессов</div><div class="sd2">Скорость, ошибки, количество правок</div></div>
+          <div class="store"><div class="st">Исходы и качество</div><div class="sd2">Точность идей, альфа, CSI по аналитикам</div></div>
+        </div>
+        <div class="note" style="color:#A66A12">⚠ Накопление данных стартует немедленно — KPI-базу ретроспективно не собрать</div>
+      </div>
+      <div>
+        <div class="col-h">Прикладные уровни</div>
+        <div class="app"><span class="an">01</span><div><div class="at">KPI-дашборды</div><div class="ad">Мониторинг производительности аналитиков и редакторов</div></div></div>
+        <div class="app"><span class="an">02</span><div><div class="at">Мониторинг качества</div><div class="ad">Тренды точности, выявление проблемных паттернов</div></div></div>
+        <div class="app"><span class="an">03</span><div><div class="at">RAG-ассистент для советников</div><div class="ad">Поиск по архиву ДИА, быстрые ответы клиентам</div></div></div>
+        <div class="app"><span class="an">04</span><div><div class="at">Расширенная автоматизация</div><div class="ad">Агентный workflow: отчёты, рассылки, уведомления</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 · РОАДМАП -->
+  <section class="slide light">
+    <div class="eyebrow"><span class="num">12</span><span class="tick"></span>ПЛАН РЕАЛИЗАЦИИ</div>
+    <div class="head-row"><h2>Роадмап до конца 2026</h2>
+      <div class="sub">От подтверждённого фундамента — к запуску фабрики и первым прикладным уровням</div></div>
+    <div class="road"><div class="road-track">
+      <div class="rq"><div class="rnode">●</div><div class="rlabel">Сейчас</div><div class="rsub">Q1–Q2 2026</div>
+        <div class="rcard"><div class="rt"><span class="rstate">✅</span>БКС Рейтинг внедрён</div></div>
+        <div class="rcard"><div class="rt"><span class="rstate">✅</span>Бот для советников (пилот)</div></div>
+        <div class="rcard"><div class="rt"><span class="rstate">⏳</span>Бэктест рейтинга · Миша</div></div>
+        <div class="rcard"><div class="rt"><span class="rstate">⏳</span>150 компаний покрыто</div></div></div>
+      <div class="rq"><div class="rnode">2</div><div class="rlabel">Запуск</div><div class="rsub">Q3 2026</div>
+        <div class="rcard"><div class="rt"><span class="rstate">🚀</span>Запуск ИИ-фабрики (пилот)</div></div>
+        <div class="rcard"><div class="rt"><span class="rstate">📊</span>Первые 100 компаний квантом</div></div>
+        <div class="rcard"><div class="rt"><span class="rstate">🔧</span>Настройка обратной связи</div></div>
+        <div class="rcard"><div class="rt"><span class="rstate">📈</span>Старт накопления KPI-базы</div></div></div>
+      <div class="rq"><div class="rnode">3</div><div class="rlabel">Развитие</div><div class="rsub">Q4 2026</div>
+        <div class="rcard"><div class="rt"><span class="rstate">📦</span>300 компаний в покрытии</div></div>
+        <div class="rcard"><div class="rt"><span class="rstate">🤖</span>RAG-ассистент (прототип)</div></div>
+        <div class="rcard"><div class="rt"><span class="rstate">📋</span>Автоматизация рассылок</div></div>
+        <div class="rcard"><div class="rt"><span class="rstate">📊</span>Первый KPI-дашборд</div></div></div>
+      <div class="rq"><div class="rnode">4</div><div class="rlabel">Масштаб</div><div class="rsub">2027+</div>
+        <div class="rcard"><div class="rt"><span class="rstate">🎯</span>500 компаний — весь S&P 500</div></div>
+        <div class="rcard"><div class="rt"><span class="rstate">🧠</span>Агентные системы v1</div></div>
+        <div class="rcard"><div class="rt"><span class="rstate">🔄</span>Полный цикл обратной связи</div></div>
+        <div class="rcard"><div class="rt"><span class="rstate">📱</span>Интеграция в приложение</div></div></div>
+    </div></div>
+  </section>
+
+  <!-- 14 · KPI ФИНАЛ (dark) -->
+  <section class="slide dark">
+    <div class="eyebrow"><span class="num">13</span><span class="tick"></span>УПРАВЛЕНИЕ РЕЗУЛЬТАТОМ</div>
+    <div class="head-row"><h2>KPI и метрики качества на выходе</h2>
+      <div class="sub">Три измерения результата — инвестиционное качество, операционная эффективность, клиентский результат</div></div>
+    <div class="kpicols">
+      <div class="kcol"><div class="kh">Инвестиционное качество <span class="ki">/01</span></div>
+        <div class="kitem"><span class="kd"></span>Accuracy идей — доля верных прогнозов</div>
+        <div class="kitem"><span class="kd"></span>Альфа к бенчмарку по реализованным идеям</div>
+        <div class="kitem"><span class="kd"></span>Sharpe ratio продуктов ДИА</div>
+        <div class="kitem"><span class="kd"></span>Место в рэнкинге СПБ Биржи</div></div>
+      <div class="kcol"><div class="kh">Операционная эффективность <span class="ki">/02</span></div>
+        <div class="kitem"><span class="kd"></span>Количество идей и отчётов</div>
+        <div class="kitem"><span class="kd"></span>Покрытие эмитентов — текущее / цель</div>
+        <div class="kitem"><span class="kd"></span>Время от данных до публикации</div>
+        <div class="kitem"><span class="kd"></span>Доля ИИ-контента в объёме</div></div>
+      <div class="kcol"><div class="kh">Клиентский результат <span class="ki">/03</span></div>
+        <div class="kitem"><span class="kd"></span>CSI — индекс удовлетворённости</div>
+        <div class="kitem"><span class="kd"></span>Охват внутренних клиентов</div>
+        <div class="kitem"><span class="kd"></span>Активность использования контента</div>
+        <div class="kitem"><span class="kd"></span>Доходность клиентов на продуктах ДИА</div></div>
+    </div>
+    <div class="closing">Измерение начинается <b>сейчас</b> → данные накапливаются → качеством управляем через данные, а не через ощущения.</div>
+  </section>
+
+</div>
+<div class="nav">
+  <button id="reload" aria-label="Обновить" title="Обновить и остаться на этом слайде">⟳</button>
+  <button id="prev" aria-label="Назад">↑</button>
+  <div class="counter"><span class="cur" id="cur">01</span> / <span id="total">14</span></div>
+  <button id="next" aria-label="Вперёд">↓</button>
+</div>
+<script>
+  const deck=document.getElementById('deck');
+  const slides=[...document.querySelectorAll('.slide')];
+  const cur=document.getElementById('cur');
+  document.getElementById('total').textContent=String(slides.length).padStart(2,'0');
+  const progress=document.getElementById('progress');
+  let idx=0;
+  function go(i){idx=Math.max(0,Math.min(slides.length-1,i));slides[idx].scrollIntoView({behavior:'smooth'})}
+  document.getElementById('next').onclick=()=>go(idx+1);
+  document.getElementById('prev').onclick=()=>go(idx-1);
+  document.getElementById('reload').onclick=function(){
+    try{
+      var base=location.href.split('?')[0].split('#')[0];
+      location.href=base+'?t='+Date.now()+(location.hash||'');
+    }catch(e){ location.reload(); }
+  };
+  window.addEventListener('keydown',e=>{
+    if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key===' '){e.preventDefault();go(idx+1)}
+    if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();go(idx-1)}
+  });
+  const io=new IntersectionObserver(es=>{es.forEach(en=>{
+    if(en.isIntersecting){
+      idx=slides.indexOf(en.target);
+      cur.textContent=String(idx+1).padStart(2,'0');
+      progress.style.width=((idx+1)/slides.length*100)+'%';
+      try{history.replaceState(null,'','#s'+(idx+1));}catch(e){}
+      en.target.querySelectorAll('.bar-fill,.kfill,.ebfill').forEach(b=>{if(b.dataset.w)b.style.width=b.dataset.w+'%'});
+    }
+  })},{threshold:.55});
+  slides.forEach(s=>io.observe(s));
+  document.querySelectorAll('.bar-fill,.kfill,.ebfill').forEach(b=>{if(b.dataset.w)b.style.width='0%'});
+  // restore slide position from URL hash on load (so reload keeps you on the same slide)
+  window.addEventListener('load',()=>{
+    try{
+      const m=(location.hash||'').match(/^#s(\d+)$/);
+      if(m){const i=parseInt(m[1],10)-1;if(i>=0&&i<slides.length){slides[i].scrollIntoView({behavior:'auto'});}}
+    }catch(e){}
+  });
+</script>
+</body>
+</html>
