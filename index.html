@@ -266,6 +266,15 @@
 
   /* ---- key initiatives 2026 ---- */
   .init-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;flex:1;margin-top:6px}
+  .init-grid.six{grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:14px}
+  .init-grid.six .init{padding:15px 18px}
+  .init-grid.six .init-h .ht{font-size:16.5px}
+  .init-grid.six .init li{font-size:11.5px;line-height:1.32;padding-left:14px}
+  .init-grid.six .init li::before{top:5px;width:5px;height:5px}
+  .init.external::before{background:var(--good)}
+  .init.external .ico{background:var(--good)}
+  .init.tools::before{background:#4A5670}
+  .init.tools .ico{background:#4A5670}
   .init{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;display:flex;flex-direction:column;position:relative;overflow:hidden}
   .init::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px}
   .init.ai::before{background:var(--navy)}
@@ -878,17 +887,17 @@
   <section class="slide light">
     <div class="eyebrow"><span class="num">05</span><span class="tick"></span>ЧТО ДЕЛАЕМ В ЭТОМ ГОДУ</div>
     <div class="head-row"><h2>Ключевые инициативы 2026</h2>
-      <div class="sub">Четыре направления, в которых концентрируем усилия дирекции в этом году</div></div>
-    <div class="init-grid">
+      <div class="sub">Шесть направлений, в которых концентрируем усилия дирекции в этом году</div></div>
+    <div class="init-grid six">
 
       <div class="init ai">
         <div class="init-h"><div class="ico">AI</div>
-          <div><div class="ht">Искусственный интеллект</div><div class="hs">Фабрика аналитики</div></div></div>
+          <div><div class="ht">Искусственный интеллект</div><div class="hs">Фабрика и агенты</div></div></div>
         <ul>
           <li>Покрытие <b>150 → 500</b> компаний (весь S&P 500) без роста команды</li>
-          <li>ИИ генерирует контент вокруг <b>верифицированного факт-слоя</b></li>
-          <li>Контроль: разделение факт/нарратив, защита от галлюцинаций, обратная связь L2</li>
-          <li>База знаний → прикладные слои: дашборды, RAG-ассистент для советников</li>
+          <li>ИИ-контент вокруг <b>верифицированного факт-слоя</b>, защита от галлюцинаций</li>
+          <li><b>Агентская схема работы в ДИА</b> — агенты берут рутинные этапы процесса</li>
+          <li><b>Создание базы знаний</b> → дашборды, RAG-ассистент для советников</li>
         </ul>
       </div>
 
@@ -899,7 +908,7 @@
           <li><b>БКС Рейтинг</b> — 4-факторная систематическая оценка бумаг</li>
           <li>Квантовый поток: ~80% бумаг через рейтинг, аналитик верифицирует</li>
           <li>Бэктест исторической доходности рейтинга</li>
-          <li>Квант дополняет фундаментальный анализ, не заменяет его</li>
+          <li>Квант дополняет фундаментальный анализ, не заменяет</li>
         </ul>
       </div>
 
@@ -909,19 +918,37 @@
         <ul>
           <li>Аллокация аналитики под <b>реальный спрос заказчиков</b> (топ-3 блока ~89%)</li>
           <li>Поиск внутренних синергий между подразделениями</li>
-          <li>Розничная подача: простота и ясность (бенчмарк Т-Инвестиции)</li>
           <li>Закрытие разрывов восприятия из конкурентного бенчмарка</li>
+        </ul>
+      </div>
+
+      <div class="init external">
+        <div class="init-h"><div class="ico">↗</div>
+          <div><div class="ht">Ближе к внешнему клиенту</div><div class="hs">Боли из AI-исследования</div></div></div>
+        <ul>
+          <li><b>Простота подачи:</b> карточки, видео вместо лонгридов (консенсус 3/3 моделей)</li>
+          <li><b>Прозрачность результата:</b> публичный track record и дисциплина входа-выхода</li>
+          <li>Персонализация против перегруза потоком, доступность без квал-барьеров</li>
         </ul>
       </div>
 
       <div class="init quality">
         <div class="init-h"><div class="ico">✓</div>
-          <div><div class="ht">Полный цикл контроля качества</div><div class="hs">Активы + продукты</div></div></div>
+          <div><div class="ht">Полный цикл качества</div><div class="hs">Активы + продукты</div></div></div>
         <ul>
-          <li><b>Уровень 1 — активы:</b> точность идей, альфа, БКС Рейтинг</li>
-          <li><b>Уровень 2 — продукты:</b> риск-профиль, обещанная доходность, Шарп</li>
-          <li>Покрытие рейтингом <b>97% → 100%</b> через автоматизацию</li>
-          <li>KPI: CSI через внутренние системы, инвестидеи — в блоке качества</li>
+          <li><b>Активы:</b> точность идей, альфа, БКС Рейтинг</li>
+          <li><b>Продукты:</b> риск-профиль, обещанная доходность, Шарп</li>
+          <li>Покрытие рейтингом <b>97% → 100%</b>, KPI и CSI — через внутренние системы</li>
+        </ul>
+      </div>
+
+      <div class="init tools">
+        <div class="init-h"><div class="ico">⚙</div>
+          <div><div class="ht">Инструментарий анализа</div><div class="hs">Качество продукта</div></div></div>
+        <ul>
+          <li>Создание <b>инструментария анализа</b> для инициативы «Качество продукта»</li>
+          <li>Автоматизация расчётов: риск-профиль, факт vs обещание, Шарп</li>
+          <li>Поддержание работы контура: регулярный пересчёт и мониторинг</li>
         </ul>
       </div>
 
