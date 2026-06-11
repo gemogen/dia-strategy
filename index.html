@@ -795,9 +795,121 @@
     </div>
   </section>
 
+  <!-- 5 · ВНУТРЕННИЕ КЛИЕНТЫ -->
+  <section class="slide light">
+    <div class="eyebrow"><span class="num">04</span><span class="tick"></span>ОПЕРАЦИОННЫЙ КОНТУР</div>
+    <div class="head-row"><h2>Внутренние клиенты: аллокация аналитики</h2>
+      <div class="sub">15+ подразделений-заказчиков — доля потребления аналитики по бюджету 2026. Топ-3 блока дают ~89%</div></div>
+    <div class="clients-grid">
+      <div>
+        <div class="col-h">Заказчики и доля аллокации</div>
+        <div class="alloc" id="alloc"></div>
+        <div class="alloc-note">Крупнейшие заказчики: <b>Премьер 28.6%</b>, <b>КБО 19.2%</b>, <b>СП 16.0%</b>. ПИБ, CIB, ДРВ — пока 0%.</div>
+      </div>
+      <div>
+        <div class="col-h">Каналы и ритм доставки</div>
+        <div class="chan">
+          <div class="chan-item"><div class="t"><span class="n">1</span>HTML-рассылки<span class="freq">ежедневно</span></div>
+            <div class="d">Дайджесты и тематические обзоры по подписке подразделений</div></div>
+          <div class="chan-item"><div class="t"><span class="n">2</span>Проактивные сообщения<span class="freq">в реальном времени</span></div>
+            <div class="d">Чаты подразделений, оперативные комментарии на события</div></div>
+          <div class="chan-item"><div class="t"><span class="n">3</span>Приложение БКС<span class="freq">постоянно</span></div>
+            <div class="d">Контент для розничных клиентов напрямую в продукте</div></div>
+          <div class="chan-item"><div class="t"><span class="n">4</span>Через советников<span class="freq">по запросу</span></div>
+            <div class="d">Адаптированный контент для конечных клиентов советника</div></div>
+        </div>
+        <div class="note">Аудитория — розничные инвесторы: приоритет простоты и ясности над глубиной</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function(){
+      const blocks=[
+        {b:'Этажи',  sub:'37.4%', items:[['Премьер',28.6],['Ультима',6.7],['Сегменты',2.1]]},
+        {b:'Брокер', sub:'29.2%', items:[['КБО',19.2],['ИТ — РР и МР',6.3],['Форекс / CFD',3.7]]},
+        {b:'Капитал',sub:'22.6%', items:[['СП',16.0],['УК',2.6],['СК',2.2],['ОА',1.3],['Pre-IPO',0.5]]},
+        {b:'Дубай',  sub:'4.3%',  items:[['Брокер КБО',3.2],['Сети',0.6],['Брокер Трейдинг',0.5]]},
+        {b:'КИБ',    sub:'4.2%',  items:[['DCM',4.2]]},
+        {b:'ИББ',    sub:'2.3%',  items:[['ДОПИ',2.3]]},
+        {b:'Банк',   sub:'0.2%',  items:[['Банк',0.2]]},
+      ];
+      const max=28.6;
+      const root=document.getElementById('alloc'); if(!root) return;
+      blocks.forEach(blk=>{
+        const g=document.createElement('div'); g.className='alloc-grp';
+        let html='<div class="alloc-gh"><span class="agn">'+blk.b+'</span><span class="ags">'+blk.sub+'</span></div>';
+        blk.items.forEach(([name,v])=>{
+          const w=(v/max)*100;
+          const top=v>=15;
+          const col=top?'var(--navy)':(v>=4?'#33508F':'#8FA0C4');
+          html+='<div class="alloc-row'+(top?' top':'')+'">'+
+            '<span class="arn">'+name+'</span>'+
+            '<span class="art"><span class="arf" style="width:'+w+'%;background:'+col+'"></span></span>'+
+            '<span class="arv">'+v.toFixed(1)+'%</span></div>';
+        });
+        g.innerHTML=html; root.appendChild(g);
+      });
+    })();
+  </script>
+
+  <!-- 13 · КЛЮЧЕВЫЕ ИНИЦИАТИВЫ 2026 -->
+  <section class="slide light">
+    <div class="eyebrow"><span class="num">05</span><span class="tick"></span>ЧТО ДЕЛАЕМ В ЭТОМ ГОДУ</div>
+    <div class="head-row"><h2>Ключевые инициативы 2026</h2>
+      <div class="sub">Четыре направления, в которых концентрируем усилия дирекции в этом году</div></div>
+    <div class="init-grid">
+
+      <div class="init ai">
+        <div class="init-h"><div class="ico">AI</div>
+          <div><div class="ht">Искусственный интеллект</div><div class="hs">Фабрика аналитики</div></div></div>
+        <ul>
+          <li>Покрытие <b>150 → 500</b> компаний (весь S&P 500) без роста команды</li>
+          <li>ИИ генерирует контент вокруг <b>верифицированного факт-слоя</b></li>
+          <li>Контроль: разделение факт/нарратив, защита от галлюцинаций, обратная связь L2</li>
+          <li>База знаний → прикладные слои: дашборды, RAG-ассистент для советников</li>
+        </ul>
+      </div>
+
+      <div class="init quant">
+        <div class="init-h"><div class="ico">Q</div>
+          <div><div class="ht">Квантовый подход</div><div class="hs">Систематизация</div></div></div>
+        <ul>
+          <li><b>БКС Рейтинг</b> — 4-факторная систематическая оценка бумаг</li>
+          <li>Квантовый поток: ~80% бумаг через рейтинг, аналитик верифицирует</li>
+          <li>Бэктест исторической доходности рейтинга</li>
+          <li>Квант дополняет фундаментальный анализ, не заменяет его</li>
+        </ul>
+      </div>
+
+      <div class="init client">
+        <div class="init-h"><div class="ico">К</div>
+          <div><div class="ht">Фокус на внутреннего клиента</div><div class="hs">Спрос и синергии</div></div></div>
+        <ul>
+          <li>Аллокация аналитики под <b>реальный спрос заказчиков</b> (топ-3 блока ~89%)</li>
+          <li>Поиск внутренних синергий между подразделениями</li>
+          <li>Розничная подача: простота и ясность (бенчмарк Т-Инвестиции)</li>
+          <li>Закрытие разрывов восприятия из конкурентного бенчмарка</li>
+        </ul>
+      </div>
+
+      <div class="init quality">
+        <div class="init-h"><div class="ico">✓</div>
+          <div><div class="ht">Полный цикл контроля качества</div><div class="hs">Активы + продукты</div></div></div>
+        <ul>
+          <li><b>Уровень 1 — активы:</b> точность идей, альфа, БКС Рейтинг</li>
+          <li><b>Уровень 2 — продукты:</b> риск-профиль, обещанная доходность, Шарп</li>
+          <li>Покрытие рейтингом <b>97% → 100%</b> через автоматизацию</li>
+          <li>KPI: CSI через внутренние системы, инвестидеи — в блоке качества</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
   <!-- 2d · БКС ИНДЕКС -->
   <section class="slide light">
-    <div class="eyebrow"><span class="num">04</span><span class="tick"></span>ФЛАГМАНСКИЙ ПРОДУКТ</div>
+    <div class="eyebrow"><span class="num">06</span><span class="tick"></span>ФЛАГМАНСКИЙ ПРОДУКТ</div>
     <div class="head-row"><h2>БКС Индекс: модель и результат против рынка</h2>
       <div class="sub">Слева — из чего состоит (4-факторная модель «Рейтинг БКС»), справа — поквартальная доходность vs Индекс Мосбиржи п.д., 2к23 – 2к26 <span class="vbadge req" style="margin-left:6px">⚠ требует верификации</span></div></div>
     <div class="split-bks">
@@ -879,7 +991,7 @@
 
   <!-- 3 · KPI БЫЛО → СТАЛО (PIE) -->
   <section class="slide light">
-    <div class="eyebrow"><span class="num">05</span><span class="tick"></span>СИСТЕМА МОТИВАЦИИ</div>
+    <div class="eyebrow"><span class="num">07</span><span class="tick"></span>СИСТЕМА МОТИВАЦИИ</div>
     <div class="head-row"><h2>KPI аналитиков: сдвиг от объёма к качеству</h2>
       <div class="sub">Пересмотр весов смещает фокус с «сколько произвели» на «насколько точно попали в результат»</div></div>
 
@@ -976,7 +1088,7 @@
 
   <!-- 4 · ИНВЕСТИЦИОННАЯ ЦЕННОСТЬ: АКТИВЫ + ПРОДУКТ -->
   <section class="slide light">
-    <div class="eyebrow"><span class="num">06</span><span class="tick"></span>ФОКУС НА ЦЕННОСТИ</div>
+    <div class="eyebrow"><span class="num">08</span><span class="tick"></span>ФОКУС НА ЦЕННОСТИ</div>
     <div class="head-row"><h2>Инвестиционная ценность: от базовых активов до продукта</h2>
       <div class="sub">Качество измеряется на двух уровнях — ценность самих активов и качество упаковки в продукт для клиента</div></div>
     <div class="split2">
@@ -1019,67 +1131,9 @@
     </div>
   </section>
 
-  <!-- 5 · ВНУТРЕННИЕ КЛИЕНТЫ -->
-  <section class="slide light">
-    <div class="eyebrow"><span class="num">07</span><span class="tick"></span>ОПЕРАЦИОННЫЙ КОНТУР</div>
-    <div class="head-row"><h2>Внутренние клиенты: аллокация аналитики</h2>
-      <div class="sub">15+ подразделений-заказчиков — доля потребления аналитики по бюджету 2026. Топ-3 блока дают ~89%</div></div>
-    <div class="clients-grid">
-      <div>
-        <div class="col-h">Заказчики и доля аллокации</div>
-        <div class="alloc" id="alloc"></div>
-        <div class="alloc-note">Крупнейшие заказчики: <b>Премьер 28.6%</b>, <b>КБО 19.2%</b>, <b>СП 16.0%</b>. ПИБ, CIB, ДРВ — пока 0%.</div>
-      </div>
-      <div>
-        <div class="col-h">Каналы и ритм доставки</div>
-        <div class="chan">
-          <div class="chan-item"><div class="t"><span class="n">1</span>HTML-рассылки<span class="freq">ежедневно</span></div>
-            <div class="d">Дайджесты и тематические обзоры по подписке подразделений</div></div>
-          <div class="chan-item"><div class="t"><span class="n">2</span>Проактивные сообщения<span class="freq">в реальном времени</span></div>
-            <div class="d">Чаты подразделений, оперативные комментарии на события</div></div>
-          <div class="chan-item"><div class="t"><span class="n">3</span>Приложение БКС<span class="freq">постоянно</span></div>
-            <div class="d">Контент для розничных клиентов напрямую в продукте</div></div>
-          <div class="chan-item"><div class="t"><span class="n">4</span>Через советников<span class="freq">по запросу</span></div>
-            <div class="d">Адаптированный контент для конечных клиентов советника</div></div>
-        </div>
-        <div class="note">Аудитория — розничные инвесторы: приоритет простоты и ясности над глубиной</div>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    (function(){
-      const blocks=[
-        {b:'Этажи',  sub:'37.4%', items:[['Премьер',28.6],['Ультима',6.7],['Сегменты',2.1]]},
-        {b:'Брокер', sub:'29.2%', items:[['КБО',19.2],['ИТ — РР и МР',6.3],['Форекс / CFD',3.7]]},
-        {b:'Капитал',sub:'22.6%', items:[['СП',16.0],['УК',2.6],['СК',2.2],['ОА',1.3],['Pre-IPO',0.5]]},
-        {b:'Дубай',  sub:'4.3%',  items:[['Брокер КБО',3.2],['Сети',0.6],['Брокер Трейдинг',0.5]]},
-        {b:'КИБ',    sub:'4.2%',  items:[['DCM',4.2]]},
-        {b:'ИББ',    sub:'2.3%',  items:[['ДОПИ',2.3]]},
-        {b:'Банк',   sub:'0.2%',  items:[['Банк',0.2]]},
-      ];
-      const max=28.6;
-      const root=document.getElementById('alloc'); if(!root) return;
-      blocks.forEach(blk=>{
-        const g=document.createElement('div'); g.className='alloc-grp';
-        let html='<div class="alloc-gh"><span class="agn">'+blk.b+'</span><span class="ags">'+blk.sub+'</span></div>';
-        blk.items.forEach(([name,v])=>{
-          const w=(v/max)*100;
-          const top=v>=15;
-          const col=top?'var(--navy)':(v>=4?'#33508F':'#8FA0C4');
-          html+='<div class="alloc-row'+(top?' top':'')+'">'+
-            '<span class="arn">'+name+'</span>'+
-            '<span class="art"><span class="arf" style="width:'+w+'%;background:'+col+'"></span></span>'+
-            '<span class="arv">'+v.toFixed(1)+'%</span></div>';
-        });
-        g.innerHTML=html; root.appendChild(g);
-      });
-    })();
-  </script>
-
   <!-- 7 · ПРОБЛЕМЫ → РЕШЕНИЯ -->
   <section class="slide light">
-    <div class="eyebrow"><span class="num">08</span><span class="tick"></span>ОТ ДИАГНОЗА К ДЕЙСТВИЮ</div>
+    <div class="eyebrow"><span class="num">09</span><span class="tick"></span>ОТ ДИАГНОЗА К ДЕЙСТВИЮ</div>
     <div class="head-row"><h2>Что отделяет нас от лидера — и чем закрываем</h2>
       <div class="sub">Каждый разрыв в восприятии связан с конкретной инициативой, уже в работе</div></div>
     <div class="ps-center">
@@ -1120,7 +1174,7 @@
 
   <!-- 8 · БКС РЕЙТИНГ -->
   <section class="slide light">
-    <div class="eyebrow"><span class="num">09</span><span class="tick"></span>КВАНТОВЫЙ ПРОДУКТ</div>
+    <div class="eyebrow"><span class="num">10</span><span class="tick"></span>КВАНТОВЫЙ ПРОДУКТ</div>
     <div class="head-row"><h2>БКС Рейтинг — четырёхфакторная модель</h2>
       <div class="sub">Систематическая оценка акций — двигатель квантового потока фабрики аналитики</div></div>
     <div class="factors">
@@ -1147,7 +1201,7 @@
 
   <!-- 9 · AI ФАБРИКА (dark) -->
   <section class="slide dark">
-    <div class="eyebrow"><span class="num">10</span><span class="tick"></span>МАСШТАБ · АРХИТЕКТУРА</div>
+    <div class="eyebrow"><span class="num">11</span><span class="tick"></span>МАСШТАБ · АРХИТЕКТУРА</div>
     <div class="head-row"><h2>Фабрика аналитики US Equities</h2>
       <div class="sub">Кратный рост покрытия без расширения команды — через разделение на два потока</div></div>
     <div class="factory-nums">
@@ -1167,7 +1221,7 @@
 
   <!-- 10 · ЭКОНОМИКА ФАБРИКИ -->
   <section class="slide light">
-    <div class="eyebrow"><span class="num">11</span><span class="tick"></span>ЭКОНОМИКА МАСШТАБА</div>
+    <div class="eyebrow"><span class="num">12</span><span class="tick"></span>ЭКОНОМИКА МАСШТАБА</div>
     <div class="head-row"><h2>Где деньги: структура затрат фабрики</h2>
       <div class="sub">Главное ограничение — не стоимость генерации, а лицензия на данные. Это меняет логику масштабирования</div></div>
     <div class="econ">
@@ -1191,7 +1245,7 @@
 
   <!-- 11 · КОНТРОЛЬ КАЧЕСТВА -->
   <section class="slide light">
-    <div class="eyebrow"><span class="num">12</span><span class="tick"></span>КАЧЕСТВО · ОТВЕТСТВЕННОСТЬ</div>
+    <div class="eyebrow"><span class="num">13</span><span class="tick"></span>КАЧЕСТВО · ОТВЕТСТВЕННОСТЬ</div>
     <div class="head-row"><h2>Контроль качества и защита от ошибок ИИ</h2>
       <div class="sub">Клиент не видит разницы между потоками — ДИА несёт единый стандарт ответственности за оба</div></div>
     <div class="pipe">
@@ -1215,7 +1269,7 @@
 
   <!-- 12 · БАЗА ЗНАНИЙ -->
   <section class="slide light">
-    <div class="eyebrow"><span class="num">13</span><span class="tick"></span>ИНФРАСТРУКТУРА ДАННЫХ</div>
+    <div class="eyebrow"><span class="num">14</span><span class="tick"></span>ИНФРАСТРУКТУРА ДАННЫХ</div>
     <div class="head-row"><h2>База знаний и агентные системы</h2>
       <div class="sub">Четыре хранилища данных — фундамент для прикладных уровней на горизонте 2026–2027</div></div>
     <div class="kb">
@@ -1236,60 +1290,6 @@
         <div class="app"><span class="an">03</span><div><div class="at">RAG-ассистент для советников</div><div class="ad">Поиск по архиву ДИА, быстрые ответы клиентам</div></div></div>
         <div class="app"><span class="an">04</span><div><div class="at">Расширенная автоматизация</div><div class="ad">Агентный workflow: отчёты, рассылки, уведомления</div></div></div>
       </div>
-    </div>
-  </section>
-
-  <!-- 13 · КЛЮЧЕВЫЕ ИНИЦИАТИВЫ 2026 -->
-  <section class="slide light">
-    <div class="eyebrow"><span class="num">14</span><span class="tick"></span>ЧТО ДЕЛАЕМ В ЭТОМ ГОДУ</div>
-    <div class="head-row"><h2>Ключевые инициативы 2026</h2>
-      <div class="sub">Четыре направления, в которых концентрируем усилия дирекции в этом году</div></div>
-    <div class="init-grid">
-
-      <div class="init ai">
-        <div class="init-h"><div class="ico">AI</div>
-          <div><div class="ht">Искусственный интеллект</div><div class="hs">Фабрика аналитики</div></div></div>
-        <ul>
-          <li>Покрытие <b>150 → 500</b> компаний (весь S&P 500) без роста команды</li>
-          <li>ИИ генерирует контент вокруг <b>верифицированного факт-слоя</b></li>
-          <li>Контроль: разделение факт/нарратив, защита от галлюцинаций, обратная связь L2</li>
-          <li>База знаний → прикладные слои: дашборды, RAG-ассистент для советников</li>
-        </ul>
-      </div>
-
-      <div class="init quant">
-        <div class="init-h"><div class="ico">Q</div>
-          <div><div class="ht">Квантовый подход</div><div class="hs">Систематизация</div></div></div>
-        <ul>
-          <li><b>БКС Рейтинг</b> — 4-факторная систематическая оценка бумаг</li>
-          <li>Квантовый поток: ~80% бумаг через рейтинг, аналитик верифицирует</li>
-          <li>Бэктест исторической доходности рейтинга</li>
-          <li>Квант дополняет фундаментальный анализ, не заменяет его</li>
-        </ul>
-      </div>
-
-      <div class="init client">
-        <div class="init-h"><div class="ico">К</div>
-          <div><div class="ht">Фокус на внутреннего клиента</div><div class="hs">Спрос и синергии</div></div></div>
-        <ul>
-          <li>Аллокация аналитики под <b>реальный спрос заказчиков</b> (топ-3 блока ~89%)</li>
-          <li>Поиск внутренних синергий между подразделениями</li>
-          <li>Розничная подача: простота и ясность (бенчмарк Т-Инвестиции)</li>
-          <li>Закрытие разрывов восприятия из конкурентного бенчмарка</li>
-        </ul>
-      </div>
-
-      <div class="init quality">
-        <div class="init-h"><div class="ico">✓</div>
-          <div><div class="ht">Полный цикл контроля качества</div><div class="hs">Активы + продукты</div></div></div>
-        <ul>
-          <li><b>Уровень 1 — активы:</b> точность идей, альфа, БКС Рейтинг</li>
-          <li><b>Уровень 2 — продукты:</b> риск-профиль, обещанная доходность, Шарп</li>
-          <li>Покрытие рейтингом <b>97% → 100%</b> через автоматизацию</li>
-          <li>KPI: CSI через внутренние системы, инвестидеи — в блоке качества</li>
-        </ul>
-      </div>
-
     </div>
   </section>
 
