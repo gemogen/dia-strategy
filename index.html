@@ -1171,7 +1171,12 @@
   const cur=document.getElementById('cur');
   document.getElementById('total').textContent=String(slides.length).padStart(2,'0');
   const progress=document.getElementById('progress');
-  let idx=0, restoring=false;
+  try{history.scrollRestoration='manual';}catch(e){}
+  // целевой слайд из адреса захватываем СРАЗУ, до запуска наблюдателя
+  const _hm=(location.hash||'').match(/#s(\d+)/);
+  const targetSlide=_hm?Math.min(slides.length-1,Math.max(0,parseInt(_hm[1],10)-1)):null;
+  let idx=targetSlide!==null?targetSlide:0;
+  let restoring=targetSlide!==null;
   function go(i){idx=Math.max(0,Math.min(slides.length-1,i));deck.scrollTo({top:slides[idx].offsetTop,behavior:'smooth'})}
   document.getElementById('next').onclick=()=>go(idx+1);
   document.getElementById('prev').onclick=()=>go(idx-1);
@@ -1196,17 +1201,23 @@
   })},{threshold:.55});
   slides.forEach(s=>io.observe(s));
   document.querySelectorAll('.bar-fill,.kfill,.ebfill').forEach(b=>{if(b.dataset.w)b.style.width='0%'});
-  // надёжное восстановление позиции после перезагрузки
+  // надёжное восстановление: прыгаем на сохранённый слайд многократно, пока вёрстка устаканивается
   function restorePos(){
-    try{
-      const m=(location.hash||'').match(/#s(\d+)/);
-      if(!m) return;
-      const i=Math.min(slides.length-1,Math.max(0,parseInt(m[1],10)-1));
-      restoring=true;
-      const jump=()=>{deck.scrollTo(0,slides[i].offsetTop);idx=i;cur.textContent=String(i+1).padStart(2,'0');progress.style.width=((i+1)/slides.length*100)+'%';};
-      jump(); setTimeout(jump,80); setTimeout(jump,250);
-      setTimeout(()=>{restoring=false;},500);
-    }catch(e){restoring=false;}
+    if(targetSlide===null) return;
+    const i=targetSlide;
+    cur.textContent=String(i+1).padStart(2,'0');
+    progress.style.width=((i+1)/slides.length*100)+'%';
+    let n=0;
+    const jump=()=>{ deck.scrollTo(0,slides[i].offsetTop); idx=i; };
+    jump();
+    const iv=setInterval(()=>{
+      jump(); n++;
+      // отпускаем, когда доскроллили достаточно близко и сделали несколько проходов
+      if(n>=10 || (Math.abs(deck.scrollTop-slides[i].offsetTop)<4 && n>=4)){
+        clearInterval(iv);
+        setTimeout(()=>{restoring=false;},120);
+      }
+    },50);
   }
   if(document.readyState==='complete'){restorePos();}else{window.addEventListener('load',restorePos);}
 </script>
