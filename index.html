@@ -309,6 +309,9 @@
   .bmatrix td.avg{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:13px;background:#fff;color:var(--ink-text)}
   .sc5{background:#1F9D6B;color:#fff}.sc4{background:#86C9A8;color:#0E3B27}
   .sc3{background:#F0D9A8;color:#7A5A12}.sc2{background:#E8B68A;color:#7A3E12}.sc1{background:#D98A8A;color:#fff}
+  .bmatrix td.nm.mut{color:var(--slate-light);font-weight:500}
+  .bmatrix .cell.mut{background:#F4F5F8;color:#B9C0CE}
+  .bmatrix td.avg.mut{color:#B9C0CE}
 
   /* ---- BKS Index slide ---- */
   .split-bks{display:grid;grid-template-columns:0.82fr 1px 1.18fr;gap:0;flex:1;margin-top:6px}
@@ -791,6 +794,7 @@
           <span class="m">Шкала: 5 — сильно · 3 — средне · 1 — слабо</span>
           <span class="m">6 параметров</span>
           <span class="m">среднее: Claude · ChatGPT · DeepSeek</span>
+          <span class="m">промпт — к верификации Voice of Client</span>
         </div>
       </div>
       <div>
@@ -801,8 +805,13 @@
           <tr><td class="nm">Сбер</td><td><span class="cell sc4">4</span></td><td><span class="cell sc4">4</span></td><td><span class="cell sc4">4</span></td><td><span class="cell sc3">3</span></td><td><span class="cell sc4">4</span></td><td class="avg">3.80</td></tr>
           <tr><td class="nm">Альфа-Банк</td><td><span class="cell sc3">3</span></td><td><span class="cell sc3">3</span></td><td><span class="cell sc4">4</span></td><td><span class="cell sc4">4</span></td><td><span class="cell sc4">4</span></td><td class="avg">3.60</td></tr>
           <tr><td class="nm">ВТБ</td><td><span class="cell sc3">3</span></td><td><span class="cell sc3">3</span></td><td><span class="cell sc3">3</span></td><td><span class="cell sc3">3</span></td><td><span class="cell sc4">4</span></td><td class="avg">3.20</td></tr>
+          <tr><td class="nm mut">Газпромбанк</td><td><span class="cell mut">—</span></td><td><span class="cell mut">—</span></td><td><span class="cell mut">—</span></td><td><span class="cell mut">—</span></td><td><span class="cell mut">—</span></td><td class="avg mut">х.хх</td></tr>
+          <tr><td class="nm mut">ПСБ</td><td><span class="cell mut">—</span></td><td><span class="cell mut">—</span></td><td><span class="cell mut">—</span></td><td><span class="cell mut">—</span></td><td><span class="cell mut">—</span></td><td class="avg mut">х.хх</td></tr>
+          <tr><td class="nm mut">Финам</td><td><span class="cell mut">—</span></td><td><span class="cell mut">—</span></td><td><span class="cell mut">—</span></td><td><span class="cell mut">—</span></td><td><span class="cell mut">—</span></td><td class="avg mut">х.хх</td></tr>
+          <tr><td class="nm mut">Синара</td><td><span class="cell mut">—</span></td><td><span class="cell mut">—</span></td><td><span class="cell mut">—</span></td><td><span class="cell mut">—</span></td><td><span class="cell mut">—</span></td><td class="avg mut">х.хх</td></tr>
+          <tr><td class="nm mut">ВЕЛЕС</td><td><span class="cell mut">—</span></td><td><span class="cell mut">—</span></td><td><span class="cell mut">—</span></td><td><span class="cell mut">—</span></td><td><span class="cell mut">—</span></td><td class="avg mut">х.хх</td></tr>
         </table></div>
-        <div class="note"><b style="color:var(--ink-text)">По глубине аналитики БКС — №1 (5/5).</b> Отставание от лидера — в простоте подачи и вовлечённости сообщества.</div>
+        <div class="note"><b style="color:var(--ink-text)">По глубине аналитики БКС — №1 (5/5).</b> Отставание от лидера — в простоте подачи. Оценки остальных участников — из того же исследования, цифры добавим. Промпт может быть верифицирован коллегами из Voice of Client.</div>
       </div>
     </div>
   </section>
