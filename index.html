@@ -696,7 +696,7 @@
         const sk=[4065,4080,4140,4160,4390,4520,4680,4860,5240,5980,6130,6120,6190,6360,6396];
         const as=[1669,1715,1680,1698,1670,1619,1503,1485,1989,1473,1459,1473,1554,1560,1591];
         const W=300,H=150,padL=4,padR=4,padT=12,padB=16;
-        const yMax=6700,yMin=1200; // поджатая шкала — меньше пустого места
+        const yMax=8000,yMin=0; // шкала 0–8000 ₽млрд
         const x=i=>padL+(i/(sk.length-1))*(W-padL-padR);
         const y=v=>padT+(1-(v-yMin)/(yMax-yMin))*(H-padT-padB);
         const base=H-padB;
