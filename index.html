@@ -302,6 +302,24 @@
   .sc5{background:#1F9D6B;color:#fff}.sc4{background:#86C9A8;color:#0E3B27}
   .sc3{background:#F0D9A8;color:#7A5A12}.sc2{background:#E8B68A;color:#7A3E12}.sc1{background:#D98A8A;color:#fff}
 
+  /* ---- BKS Index slide ---- */
+  .split-bks{display:grid;grid-template-columns:0.82fr 1px 1.18fr;gap:0;flex:1;margin-top:6px}
+  .bks-left{padding-right:30px;display:flex;flex-direction:column}
+  .bks-right{padding-left:30px;display:flex;flex-direction:column}
+  .bks-stat{display:flex;gap:26px;margin-bottom:18px}
+  .bks-stat .bsv{font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;line-height:1}
+  .bks-stat .bsv.n{color:var(--navy)}.bks-stat .bsv.g{color:var(--good)}
+  .bks-stat .bsl{font-size:11px;color:var(--slate);margin-top:5px;line-height:1.3}
+  .bks-com{list-style:none;display:flex;flex-direction:column;gap:11px}
+  .bks-com li{font-size:13px;color:var(--ink-text);line-height:1.4;padding-left:17px;position:relative}
+  .bks-com li::before{content:'';position:absolute;left:0;top:6px;width:7px;height:7px;border-radius:50%;background:var(--navy)}
+  .bks-com li b{font-weight:600}
+  .bks-legend{display:flex;gap:20px;margin-bottom:8px;font-size:12px;color:var(--slate)}
+  .bks-legend .bl{display:flex;align-items:center;gap:7px}
+  .bks-legend .sw{width:14px;height:11px;border-radius:3px}
+  .bks-legend .swl{width:18px;height:0;border-top:2.5px solid var(--teal)}
+  .bks-chart{flex:1;display:flex;align-items:center}
+
   /* ---- 3-component quality ---- */
   .qcomp{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:10px}
   .qspace{height:26px}
@@ -761,9 +779,82 @@
     </div>
   </section>
 
+  <!-- 2d · БКС ИНДЕКС -->
+  <section class="slide light">
+    <div class="eyebrow"><span class="num">04</span><span class="tick"></span>ФЛАГМАНСКИЙ ПРОДУКТ</div>
+    <div class="head-row"><h2>БКС Индекс против рынка</h2>
+      <div class="sub">Поквартальная доходность фундаментального индекса акций БКС vs Индекс Мосбиржи полной доходности, 2к23 – 2к26 <span class="vbadge req" style="margin-left:6px">⚠ требует верификации</span></div></div>
+    <div class="split-bks">
+      <div class="bks-left">
+        <div class="bks-stat">
+          <div><div class="bsv g">8 / 13</div><div class="bsl">кварталов с положительной альфой</div></div>
+          <div><div class="bsv n">≈ +21 п.п.</div><div class="bsl">накопленная альфа за 3 года · расчётно</div></div>
+        </div>
+        <ul class="bks-com">
+          <li><b>Систематически обгоняет рынок:</b> положительная альфа в 8 из 13 кварталов</li>
+          <li><b>Сильные периоды</b> — 4к23 и 1к24: альфа <b>+14 … +17 п.п.</b> на восстановлении рынка</li>
+          <li>Накопленно за период: БКС Индекс <b>≈ +57%</b> против <b>≈ +36%</b> у индекса (расчётно из квартальных данных)</li>
+          <li><b>Просадки</b> 4к24 и 2к26 — требуют разбора, на резких коррекциях рынка индекс отставал</li>
+          <li>Фундаментальный отбор бумаг — основа устойчивого опережения на горизонте</li>
+        </ul>
+      </div>
+      <div class="split-div"></div>
+      <div class="bks-right">
+        <div class="bks-legend">
+          <div class="bl"><span class="sw" style="background:var(--navy)"></span>БКС Индекс</div>
+          <div class="bl"><span class="sw" style="background:#AEB6C7"></span>Индекс Мосбиржи п.д.</div>
+          <div class="bl"><span class="swl"></span>Альфа</div>
+        </div>
+        <div class="bks-chart"><svg id="bksChart" viewBox="0 0 600 380" style="width:100%" preserveAspectRatio="xMidYMid meet"></svg></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function(){
+      const svg=document.getElementById('bksChart'); if(!svg) return;
+      const q=['2к23','3к23','4к23','1к24','2к24','3к24','4к24','1к25','2к25','3к25','4к25','1к26','2к26'];
+      const bks =[26,10,15,25,-2,-5,-5,11,-4,2,11,-3,-24];
+      const moex=[19,13,1,8,-4,-6,4,5,-3,-2,3,3,-7];
+      const alpha=[8,-3,14,17,2,2,-9,6,-1,4,8,-6,-17];
+      const W=600,H=380,padL=34,padR=12,padT=18,padB=46;
+      const yMin=-28,yMax=28;
+      const x0=padL, x1=W-padR, plotW=x1-x0;
+      const y=v=>padT+(1-(v-yMin)/(yMax-yMin))*(H-padT-padB);
+      const band=plotW/q.length;
+      const barW=band*0.30, gap=band*0.06;
+      let out='';
+      // сетка + ось Y
+      [-20,-10,0,10,20].forEach(t=>{
+        const yy=y(t);
+        out+='<line x1="'+x0+'" y1="'+yy+'" x2="'+x1+'" y2="'+yy+'" stroke="'+(t===0?'#9AA4BC':'#EAEDF1')+'" stroke-width="'+(t===0?1.2:1)+'"/>';
+        out+='<text x="'+(x0-5)+'" y="'+(yy+3)+'" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8A93A8">'+t+'%</text>';
+      });
+      const zeroY=y(0);
+      // бары
+      q.forEach((lab,i)=>{
+        const cx=x0+band*i+band/2;
+        const b1=cx-gap/2-barW, b2=cx+gap/2;
+        // БКС
+        const yb=y(bks[i]); const hb=Math.abs(yb-zeroY);
+        out+='<rect x="'+b1+'" y="'+Math.min(yb,zeroY)+'" width="'+barW+'" height="'+hb+'" rx="2" fill="'+(bks[i]<0?'#3A4A6B':'var(--navy)')+'"/>';
+        // Мосбиржа
+        const ym=y(moex[i]); const hm=Math.abs(ym-zeroY);
+        out+='<rect x="'+b2+'" y="'+Math.min(ym,zeroY)+'" width="'+barW+'" height="'+hm+'" rx="2" fill="#AEB6C7"/>';
+        // подпись квартала
+        out+='<text x="'+cx+'" y="'+(H-padB+16)+'" text-anchor="middle" font-family="IBM Plex Mono" font-size="8.5" fill="#6B7488">'+lab+'</text>';
+      });
+      // линия альфы
+      const pts=alpha.map((v,i)=>{const cx=x0+band*i+band/2; return cx+','+y(v);});
+      out+='<polyline points="'+pts.join(' ')+'" fill="none" stroke="#138A7E" stroke-width="2.4" stroke-linejoin="round"/>';
+      alpha.forEach((v,i)=>{const cx=x0+band*i+band/2; out+='<circle cx="'+cx+'" cy="'+y(v)+'" r="2.6" fill="#138A7E"/>';});
+      svg.innerHTML=out;
+    })();
+  </script>
+
   <!-- 3 · KPI БЫЛО → СТАЛО (PIE) -->
   <section class="slide light">
-    <div class="eyebrow"><span class="num">04</span><span class="tick"></span>СИСТЕМА МОТИВАЦИИ</div>
+    <div class="eyebrow"><span class="num">05</span><span class="tick"></span>СИСТЕМА МОТИВАЦИИ</div>
     <div class="head-row"><h2>KPI аналитиков: сдвиг от объёма к качеству</h2>
       <div class="sub">Пересмотр весов смещает фокус с «сколько произвели» на «насколько точно попали в результат»</div></div>
 
@@ -860,7 +951,7 @@
 
   <!-- 4 · ИНВЕСТИЦИОННАЯ ЦЕННОСТЬ: АКТИВЫ + ПРОДУКТ -->
   <section class="slide light">
-    <div class="eyebrow"><span class="num">05</span><span class="tick"></span>ФОКУС НА ЦЕННОСТИ</div>
+    <div class="eyebrow"><span class="num">06</span><span class="tick"></span>ФОКУС НА ЦЕННОСТИ</div>
     <div class="head-row"><h2>Инвестиционная ценность: от базовых активов до продукта</h2>
       <div class="sub">Качество измеряется на двух уровнях — ценность самих активов и качество упаковки в продукт для клиента</div></div>
     <div class="split2">
@@ -905,7 +996,7 @@
 
   <!-- 5 · ВНУТРЕННИЕ КЛИЕНТЫ -->
   <section class="slide light">
-    <div class="eyebrow"><span class="num">06</span><span class="tick"></span>ОПЕРАЦИОННЫЙ КОНТУР</div>
+    <div class="eyebrow"><span class="num">07</span><span class="tick"></span>ОПЕРАЦИОННЫЙ КОНТУР</div>
     <div class="head-row"><h2>Внутренние клиенты: аллокация аналитики</h2>
       <div class="sub">15+ подразделений-заказчиков — доля потребления аналитики по бюджету 2026. Топ-3 блока дают ~89%</div></div>
     <div class="clients-grid">
@@ -963,7 +1054,7 @@
 
   <!-- 7 · ПРОБЛЕМЫ → РЕШЕНИЯ -->
   <section class="slide light">
-    <div class="eyebrow"><span class="num">07</span><span class="tick"></span>ОТ ДИАГНОЗА К ДЕЙСТВИЮ</div>
+    <div class="eyebrow"><span class="num">08</span><span class="tick"></span>ОТ ДИАГНОЗА К ДЕЙСТВИЮ</div>
     <div class="head-row"><h2>Что отделяет нас от лидера — и чем закрываем</h2>
       <div class="sub">Каждый разрыв в восприятии связан с конкретной инициативой, уже в работе</div></div>
     <div class="ps-center">
@@ -1004,7 +1095,7 @@
 
   <!-- 8 · БКС РЕЙТИНГ -->
   <section class="slide light">
-    <div class="eyebrow"><span class="num">08</span><span class="tick"></span>КВАНТОВЫЙ ПРОДУКТ</div>
+    <div class="eyebrow"><span class="num">09</span><span class="tick"></span>КВАНТОВЫЙ ПРОДУКТ</div>
     <div class="head-row"><h2>БКС Рейтинг — четырёхфакторная модель</h2>
       <div class="sub">Систематическая оценка акций — двигатель квантового потока фабрики аналитики</div></div>
     <div class="factors">
@@ -1031,7 +1122,7 @@
 
   <!-- 9 · AI ФАБРИКА (dark) -->
   <section class="slide dark">
-    <div class="eyebrow"><span class="num">09</span><span class="tick"></span>МАСШТАБ · АРХИТЕКТУРА</div>
+    <div class="eyebrow"><span class="num">10</span><span class="tick"></span>МАСШТАБ · АРХИТЕКТУРА</div>
     <div class="head-row"><h2>Фабрика аналитики US Equities</h2>
       <div class="sub">Кратный рост покрытия без расширения команды — через разделение на два потока</div></div>
     <div class="factory-nums">
@@ -1051,7 +1142,7 @@
 
   <!-- 10 · ЭКОНОМИКА ФАБРИКИ -->
   <section class="slide light">
-    <div class="eyebrow"><span class="num">10</span><span class="tick"></span>ЭКОНОМИКА МАСШТАБА</div>
+    <div class="eyebrow"><span class="num">11</span><span class="tick"></span>ЭКОНОМИКА МАСШТАБА</div>
     <div class="head-row"><h2>Где деньги: структура затрат фабрики</h2>
       <div class="sub">Главное ограничение — не стоимость генерации, а лицензия на данные. Это меняет логику масштабирования</div></div>
     <div class="econ">
@@ -1075,7 +1166,7 @@
 
   <!-- 11 · КОНТРОЛЬ КАЧЕСТВА -->
   <section class="slide light">
-    <div class="eyebrow"><span class="num">11</span><span class="tick"></span>КАЧЕСТВО · ОТВЕТСТВЕННОСТЬ</div>
+    <div class="eyebrow"><span class="num">12</span><span class="tick"></span>КАЧЕСТВО · ОТВЕТСТВЕННОСТЬ</div>
     <div class="head-row"><h2>Контроль качества и защита от ошибок ИИ</h2>
       <div class="sub">Клиент не видит разницы между потоками — ДИА несёт единый стандарт ответственности за оба</div></div>
     <div class="pipe">
@@ -1099,7 +1190,7 @@
 
   <!-- 12 · БАЗА ЗНАНИЙ -->
   <section class="slide light">
-    <div class="eyebrow"><span class="num">12</span><span class="tick"></span>ИНФРАСТРУКТУРА ДАННЫХ</div>
+    <div class="eyebrow"><span class="num">13</span><span class="tick"></span>ИНФРАСТРУКТУРА ДАННЫХ</div>
     <div class="head-row"><h2>База знаний и агентные системы</h2>
       <div class="sub">Четыре хранилища данных — фундамент для прикладных уровней на горизонте 2026–2027</div></div>
     <div class="kb">
@@ -1125,7 +1216,7 @@
 
   <!-- 13 · КЛЮЧЕВЫЕ ИНИЦИАТИВЫ 2026 -->
   <section class="slide light">
-    <div class="eyebrow"><span class="num">13</span><span class="tick"></span>ЧТО ДЕЛАЕМ В ЭТОМ ГОДУ</div>
+    <div class="eyebrow"><span class="num">14</span><span class="tick"></span>ЧТО ДЕЛАЕМ В ЭТОМ ГОДУ</div>
     <div class="head-row"><h2>Ключевые инициативы 2026</h2>
       <div class="sub">Четыре направления, в которых концентрируем усилия дирекции в этом году</div></div>
     <div class="init-grid">
@@ -1179,7 +1270,7 @@
 
   <!-- 14 · РОАДМАП -->
   <section class="slide light">
-    <div class="eyebrow"><span class="num">14</span><span class="tick"></span>ПЛАН РЕАЛИЗАЦИИ</div>
+    <div class="eyebrow"><span class="num">15</span><span class="tick"></span>ПЛАН РЕАЛИЗАЦИИ</div>
     <div class="head-row"><h2>Роадмап до конца 2026</h2>
       <div class="sub">От подтверждённого фундамента — к запуску фабрики и первым прикладным уровням</div></div>
     <div class="road"><div class="road-track">
@@ -1208,7 +1299,7 @@
 
   <!-- 15 · KPI ФИНАЛ (dark) -->
   <section class="slide dark">
-    <div class="eyebrow"><span class="num">15</span><span class="tick"></span>УПРАВЛЕНИЕ РЕЗУЛЬТАТОМ</div>
+    <div class="eyebrow"><span class="num">16</span><span class="tick"></span>УПРАВЛЕНИЕ РЕЗУЛЬТАТОМ</div>
     <div class="head-row"><h2>KPI и метрики качества на выходе</h2>
       <div class="sub">Три измерения результата — инвестиционное качество, операционная эффективность, клиентский результат</div></div>
     <div class="kpicols">
