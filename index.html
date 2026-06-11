@@ -51,6 +51,14 @@
   .vbadge.ok{background:rgba(31,157,107,.12);color:#15784F;border:1px solid rgba(31,157,107,.3)}
   .dark .vbadge.req{color:var(--amber-bright);background:rgba(217,149,42,.12)}
   .dark .vbadge.ok{color:#46C690;background:rgba(31,157,107,.14)}
+  /* large verification badge with verifier */
+  .vcard{display:inline-flex;flex-direction:column;gap:2px;padding:8px 14px;border-radius:10px;flex-shrink:0}
+  .vcard .vst{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:6px;white-space:nowrap}
+  .vcard .vby{font-size:10.5px;font-weight:500;white-space:nowrap}
+  .vcard.req{background:rgba(217,149,42,.13);border:1.5px solid rgba(217,149,42,.4)}
+  .vcard.req .vst{color:#A66A12}.vcard.req .vby{color:#8A6420}
+  .vcard.ok{background:rgba(31,157,107,.11);border:1.5px solid rgba(31,157,107,.35)}
+  .vcard.ok .vst{color:#15784F}.vcard.ok .vby{color:#2E6B50}
 
   /* ---- HERO ---- */
   .hero{justify-content:center}
@@ -572,8 +580,10 @@
 
       <!-- БЛОК 1: стратегии -->
       <div class="s2col stratpanel">
-        <div class="c2top"><div class="c2t">Доходность стратегий<br>автоследования</div><span class="vbadge req">⚠ верифик.</span></div>
+        <div class="c2top"><div class="c2t">Доходность стратегий<br>автоследования</div>
+          <span class="vcard req"><span class="vst">⚠ верификация</span><span class="vby">верифицирует фабрика</span></span></div>
         <div class="c2mini">после комиссий <b>12.2%</b> · до <span class="g">15.6%</span> · vs рынок <span class="g">+6.7%</span></div>
+        <div class="c2mini" style="margin-top:-4px;color:var(--slate)">+ можем рассчитать доход клиента и БКС за 2025 — верификация финансовой дирекции</div>
         <div class="sp-legend">
           <div class="lg"><span class="sw" style="background:var(--navy)"></span>После комиссий — результат клиента</div>
           <div class="lg"><span class="sw" style="background:var(--amber)"></span>Комиссия → до комиссий</div>
@@ -584,14 +594,16 @@
 
       <!-- БЛОК 2: топ-квартиль -->
       <div class="s2col">
-        <div class="c2top"><div class="c2t">Топ-квартиль<br>vs продукты аналитики</div><span class="vbadge ok">✓ верифиц.</span></div>
+        <div class="c2top"><div class="c2t">Топ-квартиль<br>vs продукты аналитики</div>
+          <span class="vcard ok"><span class="vst">✓ верификация</span><span class="vby">продуктовая дирекция</span></span></div>
         <div class="c2sub">Средняя доходность ДИА против ПИФ, автоследования (АС) и доверит. управления (ДУ) — №1 в обеих категориях</div>
         <div class="tq" id="tq"></div>
       </div>
 
       <!-- БЛОК 3: рост активов -->
       <div class="s2col">
-        <div class="c2top"><div class="c2t">Рост активов<br>фабрик · 2025</div><span class="vbadge ok">✓ верифиц.</span></div>
+        <div class="c2top"><div class="c2t">Рост активов<br>фабрик · 2025</div>
+          <span class="vcard ok"><span class="vst">✓ верификация</span><span class="vby">верифицирует фабрика</span></span></div>
         <div class="share-row">
           <div class="share"><div class="shv ph">хх%</div><div class="shl">доля ДИА<br>в фабрике СК</div></div>
           <div class="share"><div class="shv ph">хх%</div><div class="shl">доля ДИА<br>в фабрике АС</div></div>
