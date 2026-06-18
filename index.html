@@ -594,62 +594,14 @@
   .scard .sc-sub{font-size:12px;opacity:.8;line-height:1.4;margin-bottom:14px}
   .scard.amber .sc-sub{color:var(--slate)}.scard.light .sc-sub{color:var(--slate)}
   .scard ul{list-style:none;display:flex;flex-direction:column;gap:7px;flex:1}
-  .scard li{font-size:12.5px;line-height:1.35;opacity:.9;padding-left:15px;position:relative}
-  .scard li::before{content:"";position:absolute;left:0;top:6px;width:6px;height:6px;border-radius:50%;background:var(--amber)}
-  .scard.amber li,.scard.light li{opacity:1;color:var(--ink-text)}
-  .scard.amber li::before,.scard.light li::before{background:var(--teal)}
-  /* functions */
-  .fn-wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px;flex:1;margin-top:8px}
-  .fn-card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start}
-  .fn-ico{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:17px}
-  .fn-card .ft{font-weight:600;font-size:13.5px;color:var(--ink-text);margin-bottom:4px}
-  .fn-card .fd{font-size:11.5px;color:var(--slate);line-height:1.4}
-  /* roadmap */
-  .rm2{display:flex;flex-direction:column;gap:12px;flex:1;margin-top:8px}
-  .rm2-row{display:grid;grid-template-columns:90px 100px 1fr;align-items:center;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 18px}
-  .rm2-q{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;color:var(--slate)}
-  .rm2-tag{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:700;text-transform:uppercase;padding:4px 10px;border-radius:6px;text-align:center}
-  .rm2-tag.prod{background:rgba(19,138,126,.14);color:var(--teal)}
-  .rm2-tag.ai{background:rgba(27,42,82,.1);color:var(--navy)}
-  .rm2-tag.kpi{background:rgba(217,149,42,.14);color:#A66A12}
-  .rm2-tag.qual{background:rgba(94,124,186,.13);color:#33508F}
-  .rm2-tag.strat{background:rgba(31,157,107,.12);color:#15784F}
-  .rm2-text{font-size:13px;color:var(--ink-text);line-height:1.35}
-  .rm2-text b{font-weight:600}
-  /* clients summary */
-  .cl-wrap{display:grid;grid-template-columns:1.1fr 0.9fr;gap:32px;flex:1;margin-top:8px}
-  .cl-groups{display:flex;flex-direction:column;gap:10px}
-  .cl-group{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 18px;display:grid;grid-template-columns:110px 1fr 56px;align-items:center;gap:12px}
-  .cl-group .cgn{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--slate);font-weight:600}
-  .cl-group .cgs{font-family:"IBM Plex Mono",monospace;font-size:18px;font-weight:700;color:var(--navy)}
-  .cl-group .cgi{font-size:11.5px;color:var(--slate);line-height:1.35}
-  .cl-track{position:relative;height:10px;background:#F2F3F6;border-radius:5px;overflow:hidden}
-  .cl-fill{position:absolute;left:0;top:0;height:10px;border-radius:5px;background:var(--navy)}
-  .cl-right{display:flex;flex-direction:column;gap:10px}
-  .cl-rhythm{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 18px}
-  .cl-rhythm .crh{font-weight:600;font-size:13px;color:var(--ink-text);margin-bottom:10px}
-  .cl-rhythm .cri{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--line);font-size:12px}
-  .cl-rhythm .cri:last-child{border-bottom:none}
-  .cl-rhythm .cri .crn{color:var(--ink-text);font-weight:500}
-  .cl-rhythm .cri .crf{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--slate-light);text-transform:uppercase}
-
-</style>
-</head>
-<body>
-<div class="progress" id="progress"></div>
-<div class="deck" id="deck">
-
-  <!-- S1 · ТИТУЛ (HERO без сотрудников уже обработан выше) -->
-
-  <!-- S2 · РЕЗУЛЬТАТЫ 2025 -->
+  .scard li{font-size:12.5px;l
+  <!-- S1 · РЕЗУЛЬТАТЫ -->
   <section class="slide light">
     <div class="bks-logo"></div>
     <div class="eyebrow"><span class="num">01</span><span class="tick"></span>РЕЗУЛЬТАТЫ · 2025</div>
     <div class="head-row"><h2>ДИА 2025: достижения и вызовы</h2>
       <div class="sub">Подтверждённая инвестиционная ценность — и честная диагностика точек роста</div></div>
     <div style="display:grid;grid-template-columns:1.15fr 0.85fr;gap:22px;flex:1;margin-top:8px">
-
-      <!-- ДОСТИЖЕНИЯ -->
       <div style="display:flex;flex-direction:column;gap:12px">
         <div class="scard navy" style="flex:1">
           <div class="sc-tag">Продукты автоследования</div>
@@ -665,142 +617,135 @@
             <div class="sc-tag">Vs конкуренты · идеи</div>
             <div class="sc-big">#1 / #1</div>
             <div class="sc-sub">качество 72% и объём 131 — первое место среди 9 брокеров РФ</div>
-            <ul>
-              <li>№1 в 7 из 10 секторов</li>
-              <li>ТМТ: <b>100%</b> идей в плюсе</li>
-            </ul>
+            <ul><li>№1 в 7 из 10 секторов</li><li>ТМТ: <b>100%</b> идей в плюсе</li></ul>
           </div>
           <div class="scard amber">
             <div class="sc-tag">AI-бенчмарк</div>
             <div class="sc-big">4.28 / 5</div>
-            <div class="sc-sub">№2 из 8 · глубина аналитики <b>5.0 — №1</b> в выборке</div>
-            <ul>
-              <li>Паритет с лидером по содержанию и своевременности</li>
-            </ul>
+            <div class="sc-sub">№2 из 8 · глубина аналитики <b>5.0 — №1</b></div>
+            <ul><li>Паритет с лидером по содержанию и своевременности</li></ul>
           </div>
         </div>
       </div>
-
-      <!-- ВЫЗОВЫ -->
       <div style="display:flex;flex-direction:column">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);margin-bottom:12px">Вызовы · точки роста</div>
         <div style="display:flex;flex-direction:column;gap:10px;flex:1">
-
           <div style="background:var(--card);border:1.5px solid rgba(212,91,91,.25);border-radius:13px;padding:15px 17px">
             <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:#D45B5B;margin-bottom:6px">Ясность подачи · 3/3 AI-модели</div>
             <div style="font-weight:600;font-size:13.5px;color:var(--ink-text);margin-bottom:4px">Упаковка продукта</div>
-            <div style="font-size:12px;color:var(--slate);line-height:1.4">Разрыв с лидером <b>−1.7 п.</b> в ясности подачи. Клиенты хотят карточки и видео вместо лонгридов</div>
+            <div style="font-size:12px;color:var(--slate);line-height:1.4">Разрыв с лидером <b>−1.7 п.</b> Клиенты хотят карточки и видео вместо лонгридов</div>
           </div>
-
           <div style="background:var(--card);border:1.5px solid rgba(212,91,91,.25);border-radius:13px;padding:15px 17px">
             <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:#D45B5B;margin-bottom:6px">Вовлечение · консенсус AI</div>
             <div style="font-weight:600;font-size:13.5px;color:var(--ink-text);margin-bottom:4px">Сообщество и дисциплина</div>
-            <div style="font-size:12px;color:var(--slate);line-height:1.4">Профит (4.0) vs Пульс (5.0). Непрозрачность выхода из идеи — клиенты не понимают когда фиксировать</div>
+            <div style="font-size:12px;color:var(--slate);line-height:1.4">Профит (4.0) vs Пульс (5.0). Непрозрачность выхода из идеи</div>
           </div>
-
           <div style="background:var(--card);border:1.5px solid rgba(139,149,168,.25);border-radius:13px;padding:15px 17px">
             <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin-bottom:6px">Масштаб покрытия</div>
             <div style="font-weight:600;font-size:13.5px;color:var(--ink-text);margin-bottom:4px">150 → 500 компаний</div>
-            <div style="font-size:12px;color:var(--slate);line-height:1.4">Текущее покрытие US Equities не позволяет конкурировать за клиентов с глобальными интересами</div>
+            <div style="font-size:12px;color:var(--slate);line-height:1.4">Текущее покрытие US Equities ограничивает конкуренцию за глобальных клиентов</div>
           </div>
-
           <div style="background:var(--card);border:1.5px solid rgba(139,149,168,.25);border-radius:13px;padding:15px 17px">
             <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin-bottom:6px">Перегруз потоком · отзывы</div>
             <div style="font-weight:600;font-size:13.5px;color:var(--ink-text);margin-bottom:4px">Доступность и фильтрация</div>
-            <div style="font-size:12px;color:var(--slate);line-height:1.4">Слишком много контента, сложно выбрать главное. Часть глубокой аналитики заперта за квал-статусом</div>
+            <div style="font-size:12px;color:var(--slate);line-height:1.4">Слишком много контента, часть аналитики заперта за квал-статусом</div>
           </div>
-
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- S3 · ФУНКЦИИ ДИА -->
+  <!-- S2 · ФУНКЦИИ ДИА -->
   <section class="slide light">
     <div class="bks-logo"></div>
     <div class="eyebrow"><span class="num">02</span><span class="tick"></span>ЧТО МЫ ДЕЛАЕМ</div>
     <div class="head-row"><h2>Семь функций аналитической дирекции</h2>
       <div class="sub">ДИА создаёт инвестиционную ценность на двух уровнях — для клиентов БКС и для внутренних заказчиков</div></div>
     <div class="fn-wrap">
-      <div class="fn-card"><div class="fn-ico" style="background:rgba(27,42,82,.1)">📐</div>
-        <div><div class="ft">Оценка инвестиционного качества активов и продуктов</div>
-        <div class="fd">Точность идей, альфа, соответствие риск-профилю и обещанной доходности. Покрытие 97% продуктов рейтингом качества</div></div></div>
-      <div class="fn-card"><div class="fn-ico" style="background:rgba(19,138,126,.1)">🎯</div>
-        <div><div class="ft">Фокус на внешнего клиента</div>
-        <div class="fd">Простота подачи, прозрачный track record, персонализация. Работа с болями розничного инвестора по данным AI-исследования</div></div></div>
-      <div class="fn-card"><div class="fn-ico" style="background:rgba(94,124,186,.12)">🏢</div>
-        <div><div class="ft">Фокус на внутреннего клиента</div>
-        <div class="fd">15+ подразделений-заказчиков. Аллокация аналитики под реальный спрос. Топ-3 блока: Этажи, Брокер, Капитал — 89% бюджета</div></div></div>
-      <div class="fn-card"><div class="fn-ico" style="background:rgba(217,149,42,.12)">💡</div>
-        <div><div class="ft">Инвестиционные идеи и аналитика</div>
-        <div class="fd">131 идея в 2025 году — №1 в РФ. Отчёты, дайджесты, комментарии на события, стратегия по секторам и макро</div></div></div>
-      <div class="fn-card"><div class="fn-ico" style="background:rgba(31,157,107,.12)">🎓</div>
-        <div><div class="ft">Образовательная функция</div>
-        <div class="fd">Контент для розничных клиентов в приложении и рассылках. Поддержка каналов продаж: ФС, КБО, BDM — обучающие материалы и экспертиза</div></div></div>
-      <div class="fn-card"><div class="fn-ico" style="background:rgba(139,92,246,.1)">👔</div>
-        <div><div class="ft">Экспертиза для топ-менеджмента</div>
-        <div class="fd">Аналитические материалы для стратегических решений. Поддержка позиционирования БКС как ведущей инвестиционной платформы</div></div></div>
-      <div class="fn-card"><div class="fn-ico" style="background:rgba(217,149,42,.08)">⭐</div>
-        <div><div class="ft">Поддержание силы бренда</div>
-        <div class="fd">БКС №1 по глубине аналитики (5.0/5 в AI-бенчмарке). Публичные рейтинги, медиа-экспертиза, репутация «аналитики с результатом»</div></div></div>
+      <div class="fn-card"><div class="fn-ico" style="background:rgba(27,42,82,.1)">📐</div><div><div class="ft">Оценка инвестиционного качества активов и продуктов</div><div class="fd">Точность идей, альфа, соответствие риск-профилю и обещанной доходности. Покрытие 97% продуктов рейтингом качества</div></div></div>
+      <div class="fn-card"><div class="fn-ico" style="background:rgba(19,138,126,.1)">🎯</div><div><div class="ft">Фокус на внешнего клиента</div><div class="fd">Простота подачи, прозрачный track record, персонализация. Работа с болями розничного инвестора по данным AI-исследования</div></div></div>
+      <div class="fn-card"><div class="fn-ico" style="background:rgba(94,124,186,.12)">🏢</div><div><div class="ft">Фокус на внутреннего клиента</div><div class="fd">15+ подразделений-заказчиков. Аллокация аналитики под реальный спрос. Топ-3 блока: Этажи, Брокер, Капитал — 89% бюджета</div></div></div>
+      <div class="fn-card"><div class="fn-ico" style="background:rgba(217,149,42,.12)">💡</div><div><div class="ft">Инвестиционные идеи и аналитика</div><div class="fd">131 идея в 2025 году — №1 в РФ. Отчёты, дайджесты, комментарии на события, стратегия по секторам и макро</div></div></div>
+      <div class="fn-card"><div class="fn-ico" style="background:rgba(31,157,107,.12)">🎓</div><div><div class="ft">Образовательная функция</div><div class="fd">Контент для розничных клиентов в приложении и рассылках. Поддержка каналов продаж: ФС, КБО, BDM — обучающие материалы и экспертиза</div></div></div>
+      <div class="fn-card"><div class="fn-ico" style="background:rgba(139,92,246,.1)">👔</div><div><div class="ft">Экспертиза для топ-менеджмента</div><div class="fd">Аналитические материалы для стратегических решений. Поддержка позиционирования БКС как ведущей инвестиционной платформы</div></div></div>
+      <div class="fn-card"><div class="fn-ico" style="background:rgba(217,149,42,.08)">⭐</div><div><div class="ft">Поддержание силы бренда</div><div class="fd">БКС №1 по глубине аналитики (5.0/5 в AI-бенчмарке). Публичные рейтинги, медиа-экспертиза, репутация «аналитики с результатом»</div></div></div>
     </div>
   </section>
 
-  <!-- S4 · ИНИЦИАТИВЫ 2026 -->
+  <!-- S3 · ИНИЦИАТИВЫ (детальный слайд из бэкапа) -->
   <section class="slide light">
     <div class="bks-logo"></div>
-    <div class="eyebrow"><span class="num">03</span><span class="tick"></span>ПРИОРИТЕТЫ · 2026</div>
+    <div class="eyebrow"><span class="num">03</span><span class="tick"></span>ЧТО ДЕЛАЕМ В ЭТОМ ГОДУ</div>
     <div class="head-row"><h2>Ключевые инициативы 2026</h2>
-      <div class="sub">Четыре стратегических направления — с фокусом на рост охвата, качество восприятия и новые продукты</div></div>
-    <div class="sum2">
-      <div class="scard navy">
-        <div class="sc-tag">Масштаб и ИИ</div>
-        <div class="sc-big">150 → 500</div>
-        <div class="sc-sub">расширение покрытия бумаг без роста команды — ИИ-фабрика аналитики</div>
+      <div class="sub">Шесть направлений, в которых концентрируем усилия дирекции в этом году</div></div>
+    <div class="init-grid six">
+
+      <div class="init ai">
+        <div class="init-h"><div class="ico">AI</div>
+          <div><div class="ht">Искусственный интеллект</div><div class="hs">Фабрика и агенты</div></div></div>
         <ul>
-          <li>ИИ на всех этапах работы ДИА: генерация, контроль, дистрибуция</li>
-          <li>Агентская схема — рутинные процессы автоматизированы</li>
-          <li>База знаний + RAG-ассистент для советников</li>
-          <li>Факт-слой верифицирован, защита от галлюцинаций</li>
+          <li>Покрытие <b>150 → 500</b> компаний (весь S&P 500) без роста команды</li>
+          <li>ИИ-контент вокруг <b>верифицированного факт-слоя</b>, защита от галлюцинаций</li>
+          <li><b>Агентская схема работы в ДИА</b> — агенты берут рутинные этапы процесса</li>
+          <li><b>Создание базы знаний</b> → дашборды, RAG-ассистент для советников</li>
         </ul>
       </div>
-      <div class="scard teal">
-        <div class="sc-tag">Новый продукт</div>
-        <div class="sc-big">БКС Рейтинг</div>
-        <div class="sc-sub">расширение продуктовой линейки — многофакторная модель оценки бумаг</div>
+
+      <div class="init quant">
+        <div class="init-h"><div class="ico">Q</div>
+          <div><div class="ht">Новые продукты</div><div class="hs">Многофакторный анализ</div></div></div>
         <ul>
-          <li>4 фактора: взгляд аналитика, качество бизнеса, оценка, динамика</li>
-          <li>~80% бумаг через рейтинг, аналитик верифицирует</li>
-          <li>Бэктест исторической доходности</li>
-          <li>Квант дополняет фундаментальный анализ, не заменяет</li>
+          <li><b>БКС Рейтинг</b> — 4-факторная систематическая оценка бумаг</li>
+          <li>Поток многофакторного анализа: ~80% бумаг через рейтинг, аналитик верифицирует</li>
+          <li>Бэктест исторической доходности рейтинга</li>
+          <li>Многофакторный анализ дополняет фундаментальный, не заменяет</li>
         </ul>
       </div>
-      <div class="scard amber">
-        <div class="sc-tag">Качество восприятия</div>
-        <div class="sc-big">Упаковка</div>
-        <div class="sc-sub">работа с качеством восприятия розничного инвестора — ясность подачи идей</div>
+
+      <div class="init client">
+        <div class="init-h"><div class="ico">К</div>
+          <div><div class="ht">Фокус на внутреннего клиента</div><div class="hs">Спрос и синергии</div></div></div>
         <ul>
-          <li>Карточки и видео вместо лонгридов (запрос 3/3 AI-моделей)</li>
-          <li>Прозрачный track record и дисциплина входа-выхода</li>
-          <li>Закрытие разрыва с Т-Инвестициями в ясности подачи (−1.7)</li>
+          <li>Аллокация аналитики под <b>реальный спрос заказчиков</b> (топ-3 блока ~89%)</li>
+          <li>Поиск внутренних синергий между подразделениями</li>
+          <li>Закрытие разрывов восприятия из конкурентного бенчмарка</li>
         </ul>
       </div>
-      <div class="scard light">
-        <div class="sc-tag">KPI и качество</div>
-        <div class="sc-big">Контроль</div>
-        <div class="sc-sub">полный цикл контроля качества аналитики — активы и продукты</div>
+
+      <div class="init external">
+        <div class="init-h"><div class="ico">↗</div>
+          <div><div class="ht">Ближе к внешнему клиенту</div><div class="hs">Боли из AI-исследования</div></div></div>
         <ul>
-          <li>Покрытие рейтингом качества <b>97% → 100%</b></li>
-          <li>CSI через внутренние системы (не собственный сбор)</li>
-          <li>Финализация весов KPI по итогам общения с заказчиками</li>
-          <li>Инструментарий оценки качества продуктов</li>
+          <li><b>Простота подачи:</b> карточки, видео вместо лонгридов (консенсус 3/3 моделей)</li>
+          <li><b>Прозрачность результата:</b> публичный track record и дисциплина входа-выхода</li>
+          <li>Персонализация против перегруза потоком, доступность без квал-барьеров</li>
         </ul>
       </div>
+
+      <div class="init quality">
+        <div class="init-h"><div class="ico">✓</div>
+          <div><div class="ht">Полный цикл качества</div><div class="hs">Активы + продукты</div></div></div>
+        <ul>
+          <li><b>Активы:</b> точность идей, альфа, БКС Рейтинг</li>
+          <li><b>Продукты:</b> риск-профиль, обещанная доходность, Шарп</li>
+          <li>Покрытие рейтингом <b>97% → 100%</b>, KPI и CSI — через внутренние системы</li>
+        </ul>
+      </div>
+
+      <div class="init tools">
+        <div class="init-h"><div class="ico">⚙</div>
+          <div><div class="ht">Инструментарий анализа</div><div class="hs">Качество продукта</div></div></div>
+        <ul>
+          <li>Создание <b>инструментария анализа</b> для инициативы «Качество продукта»</li>
+          <li>Автоматизация расчётов: риск-профиль, факт vs обещание, Шарп</li>
+          <li>Поддержание работы контура: регулярный пересчёт и мониторинг</li>
+        </ul>
+      </div>
+
     </div>
   </section>
 
-  <!-- S5 · ЗАКАЗЧИКИ И ОПЕРРИТМ -->
+  <!-- S4 · ЗАКАЗЧИКИ -->
   <section class="slide light">
     <div class="bks-logo"></div>
     <div class="eyebrow"><span class="num">04</span><span class="tick"></span>ОПЕРАЦИОННЫЙ КОНТУР</div>
@@ -848,7 +793,7 @@
     })();
   </script>
 
-  <!-- S6 · ДОРОЖНАЯ КАРТА -->
+  <!-- S5 · ДОРОЖНАЯ КАРТА -->
   <section class="slide light">
     <div class="bks-logo"></div>
     <div class="eyebrow"><span class="num">05</span><span class="tick"></span>ПЛАН · 2026</div>
@@ -859,13 +804,54 @@
       <div class="rm2-row"><div class="rm2-q">I–II кв 2026</div><div><span class="rm2-tag prod">Продукт</span></div><div class="rm2-text">Запуск <b>многофакторной числовой модели</b> (БКС Рейтинг) — от прототипа к проду</div></div>
       <div class="rm2-row"><div class="rm2-q">II кв 2026</div><div><span class="rm2-tag ai">ИИ</span></div><div class="rm2-text">Создание <b>базы знаний ДИА</b> — структурированный репозиторий аналитики и процессов</div></div>
       <div class="rm2-row"><div class="rm2-q">II–III кв 2026</div><div><span class="rm2-tag ai">ИИ</span></div><div class="rm2-text">Запуск <b>проекта «Аналитика на базе ИИ»</b> — агентская схема, US Equities 150→500</div></div>
-      <div class="rm2-row"><div class="rm2-q">III кв 2026</div><div><span class="rm2-tag qual">Качество</span></div><div class="rm2-text">Внедрение оценки качества аналитики через <b>синтетическую фокус-группу</b> (AI-judge)</div></div>
-      <div class="rm2-row"><div class="rm2-q">III–IV кв 2026</div><div><span class="rm2-tag ai">ИИ</span></div><div class="rm2-text">Запуск <b>мультиагентной системы БКС</b> — агенты закрывают рутинные этапы процесса</div></div>
+      <div class="rm2-row"><div class="rm2-q">III кв 2026</div><div><span class="rm2-tag qual">Качество</span></div><div class="rm2-text">Внедрение оценки качества через <b>синтетическую фокус-группу</b> (AI-judge)</div></div>
+      <div class="rm2-row"><div class="rm2-q">III–IV кв 2026</div><div><span class="rm2-tag ai">ИИ</span></div><div class="rm2-text">Запуск <b>мультиагентной системы БКС</b> — агенты закрывают рутинные этапы</div></div>
       <div class="rm2-row"><div class="rm2-q">IV кв 2026</div><div><span class="rm2-tag kpi">KPI</span></div><div class="rm2-text">Финализация KPI на 2П2026: <b>CSI через внутренние системы</b>, инвестидеи в блоке качества</div></div>
     </div>
   </section>
 
   <!-- ===== BACKUP SLIDES (детальные материалы) ===== -->
+ine-height:1.35;opacity:.9;padding-left:15px;position:relative}
+  .scard li::before{content:"";position:absolute;left:0;top:6px;width:6px;height:6px;border-radius:50%;background:var(--amber)}
+  .scard.amber li,.scard.light li{opacity:1;color:var(--ink-text)}
+  .scard.amber li::before,.scard.light li::before{background:var(--teal)}
+  .fn-wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px;flex:1;margin-top:8px}
+  .fn-card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start}
+  .fn-ico{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:17px}
+  .fn-card .ft{font-weight:600;font-size:13.5px;color:var(--ink-text);margin-bottom:4px}
+  .fn-card .fd{font-size:11.5px;color:var(--slate);line-height:1.4}
+  .rm2{display:flex;flex-direction:column;gap:12px;flex:1;margin-top:8px}
+  .rm2-row{display:grid;grid-template-columns:90px 100px 1fr;align-items:center;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 18px}
+  .rm2-q{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;color:var(--slate)}
+  .rm2-tag{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:700;text-transform:uppercase;padding:4px 10px;border-radius:6px;text-align:center}
+  .rm2-tag.prod{background:rgba(19,138,126,.14);color:var(--teal)}
+  .rm2-tag.ai{background:rgba(27,42,82,.1);color:var(--navy)}
+  .rm2-tag.kpi{background:rgba(217,149,42,.14);color:#A66A12}
+  .rm2-tag.qual{background:rgba(94,124,186,.13);color:#33508F}
+  .rm2-tag.strat{background:rgba(31,157,107,.12);color:#15784F}
+  .rm2-text{font-size:13px;color:var(--ink-text);line-height:1.35}
+  .rm2-text b{font-weight:600}
+  .cl-wrap{display:grid;grid-template-columns:1.1fr 0.9fr;gap:32px;flex:1;margin-top:8px}
+  .cl-groups{display:flex;flex-direction:column;gap:10px}
+  .cl-group{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 18px;display:grid;grid-template-columns:110px 1fr 56px;align-items:center;gap:12px}
+  .cl-group .cgn{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--slate);font-weight:600}
+  .cl-group .cgs{font-family:"IBM Plex Mono",monospace;font-size:18px;font-weight:700;color:var(--navy)}
+  .cl-group .cgi{font-size:11.5px;color:var(--slate);line-height:1.35}
+  .cl-track{position:relative;height:10px;background:#F2F3F6;border-radius:5px;overflow:hidden}
+  .cl-fill{position:absolute;left:0;top:0;height:10px;border-radius:5px;background:var(--navy)}
+  .cl-right{display:flex;flex-direction:column;gap:10px}
+  .cl-rhythm{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 18px}
+  .cl-rhythm .crh{font-weight:600;font-size:13px;color:var(--ink-text);margin-bottom:10px}
+  .cl-rhythm .cri{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .cl-rhythm .cri:last-child{border-bottom:none}
+  .cl-rhythm .cri .crn{color:var(--ink-text);font-weight:500}
+  .cl-rhythm .cri .crf{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--slate-light);text-transform:uppercase}
+
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="deck" id="deck">
   <!-- 1 · HERO -->
   <section class="slide dark hero">
     <div class="bks-logo"></div>
